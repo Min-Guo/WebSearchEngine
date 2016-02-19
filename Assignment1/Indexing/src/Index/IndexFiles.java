@@ -1,4 +1,4 @@
-package IndexSearch;
+package Index;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
@@ -29,13 +29,13 @@ import java.io.ByteArrayInputStream;
 
 
 /**
- * IndexSearch.IndexFiles from https://lucene.apache.org/core/5_4_1/demo/src-html/org/apache/lucene/demo/IndexFiles.html
+ * Index.IndexFiles from https://lucene.apache.org/core/5_4_1/demo/src-html/org/apache/lucene/demo/IndexFiles.html
  */
 
 public class IndexFiles {
     private IndexFiles() {}
     public static void main(String[] args) {
-        String usage = "java org.apache.lucene.demo.IndexSearch.IndexFiles" +
+        String usage = "java org.apache.lucene.demo.Index.IndexFiles" +
                 " [-index INDEX_PATH] [-docs DOCS_PATH] [-update]\n\n" +
                 "This indexes the documents in DOCS_PATH, creating a Lucene index" +
                 "in INDEX_PATH that can be searched with SearchFiles";

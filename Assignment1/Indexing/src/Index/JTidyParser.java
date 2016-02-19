@@ -1,7 +1,5 @@
-package IndexSearch;
+package Index;
 
-import org.apache.lucene.document.Field;
-import org.apache.lucene.document.TextField;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
