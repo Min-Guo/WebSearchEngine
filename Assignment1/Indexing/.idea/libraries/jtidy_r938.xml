@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="jtidy-r938">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../Library/jtidy-r938/jtidy-r938.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Library/jtidy-r938.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
