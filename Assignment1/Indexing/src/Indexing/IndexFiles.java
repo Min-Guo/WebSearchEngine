@@ -187,7 +187,7 @@ public class IndexFiles {
         // make a new, empty document
         Document doc = new Document();
 
-        //If file has no title, replace h1 or h2 h3 with title
+        //If file has no title, treat h1 or h2 or h3 as title
         if (parsedInfo[0] == "") {
           if (parsedInfo[2] != "") {
             parsedInfo[0] = parsedInfo[2];
