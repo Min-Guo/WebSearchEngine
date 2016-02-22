@@ -160,6 +160,9 @@ public class IndexFiles {
       indexDoc(writer, path, Files.getLastModifiedTime(path).toMillis());
     }
   }
+  /** The code above comes from https://lucene.apache.org/core/5_4_1/demo/overview-summary.html.
+   * I modified the code below to satisfy my needs.
+   */
 
   /** get the extension of file */
   static String getExtension (Path file) {
@@ -176,7 +179,7 @@ public class IndexFiles {
   static void indexDoc(IndexWriter writer, Path file, long lastModified) throws IOException {
     String fileExtension = getExtension(file);
 
-    // Only index html or htm files
+    // Only index html or htm files. Sometimes system will generate some files we don't want to index.
     if (fileExtension.equals("html") || fileExtension.equals("htm")) {
       try (InputStream fileStream = Files.newInputStream(file)) {
 
@@ -197,6 +200,7 @@ public class IndexFiles {
             parsedInfo[0] = parsedInfo[4];
           }
         }
+        //Add the title of the files as a field names "title", and store for display.
         doc.add(new StringField("title", parsedInfo[0], Field.Store.YES));
 
         // Add the path of the file as a field named "path".  Use a
