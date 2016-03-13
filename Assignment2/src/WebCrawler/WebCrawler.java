@@ -1,9 +1,8 @@
 package WebCrawler;
-import java.util.Hashtable;
-import java.util.PriorityQueue;
+import sun.java2d.pipe.AAShapePipe;
+
+import java.util.*;
 import java.net.*;
-import java.util.Properties;
-import java.util.StringTokenizer;
 import java.io.*;
 
 
@@ -12,10 +11,26 @@ public class WebCrawler {
     public static String fileLocation;
     public static PriorityQueue<URLInfo> newUrls;
     public static Hashtable<URL, Integer> seenUrls;
-    public static final boolean DEBUG = false;
+    public static boolean DEBUG = false;
     public static final String DISALLOW = "Disallow:";
-    public static int maxPages;
+    public static int maxPages = 0;
+    public static final Map<String, List<String>> argsMap = new HashMap<>();
 
+    static void parsingArgs (String[] args) {
+        String flag = "";
+        List<String> fArgs = new ArrayList<>();
+        for (String arg:args) {
+            if (arg.charAt(0) == '-') {
+                if (!flag.equals("")) {
+                    argsMap.put(flag, new ArrayList<>(fArgs));
+                    fArgs.clear();
+                }
+                flag = arg;
+            } else {
+                fArgs.add(arg);
+            }
+        }
+    }
 
     static void initialize(String[] args) {
         URL url;
@@ -136,14 +151,16 @@ public class WebCrawler {
     { URL url;
         if (DEBUG) System.out.println("URL String " + newUrlString);
         try { url = new URL(oldURL,newUrlString);
+            int linkScore = calcScore(oldPage, url, query);
+            URLInfo urlInfo = new URLInfo(url, linkScore);
             if (!seenUrls.containsKey(url)) {
                 String filename =  url.getFile();
                 int iSuffix = filename.lastIndexOf("htm");
                 if ((iSuffix == filename.length() - 3) ||
                         (iSuffix == filename.length() - 4)) {
                     seenUrls.put(url,new Integer(1));
-                    int linkScore = calcScore(oldPage, url, query);
-                    URLInfo urlInfo = new URLInfo(url, linkScore);
+//                    int linkScore = calcScore(oldPage, url, query);
+//                    URLInfo urlInfo = new URLInfo(url, linkScore);
                     newUrls.add(urlInfo);
                     System.out.println("Found new URL " + url.toString());
                 } } }
@@ -203,9 +220,9 @@ public class WebCrawler {
         }
     }
 
-    public void run(String[] args)
-
-    { initialize(args);
+    public void run(String[] args){
+        parsingArgs(args);
+        initialize(args);
         for (int i = 0; i < maxPages; i++) {
             URL url = newUrls.poll().getUrl();
             if (DEBUG) System.out.println("Searching " + url.toString());
