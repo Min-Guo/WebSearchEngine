@@ -14,7 +14,9 @@ public class WebCrawler {
     public static boolean DEBUG = false;
     public static final String DISALLOW = "Disallow:";
     public static int maxPages = 0;
+    public static final int fileLimit = 20000;
     public static final Map<String, List<String>> argsMap = new HashMap<>();
+    public static List<String> plainContent;
 
     static void parsingArgs (String[] args) {
         String flag = "";
@@ -34,14 +36,14 @@ public class WebCrawler {
 
     static void initialize(String[] args) {
         URL url;
-        fileLocation = args[2];
-        maxPages = Integer.parseInt(args[3]);
+        fileLocation = argsMap.get("-docs").get(0);
+        maxPages = Integer.parseInt(argsMap.get("-m").get(0));
         newUrls =
-                new PriorityQueue<URLInfo>(maxPages, new LinkScoreComparator());
+                new PriorityQueue<URLInfo>(fileLimit, new LinkScoreComparator());
         seenUrls = new Hashtable<>();
-        try { url = new URL(args[0]); }
+        try { url = new URL(argsMap.get("-u").get(0)); }
         catch (MalformedURLException e) {
-            System.out.println("Invalid starting URL " + args[0]);
+            System.out.println("Invalid starting URL " + argsMap.get("-u").get(0));
             return;
         }
         seenUrls.put(url,new Integer(1));
@@ -124,48 +126,44 @@ public class WebCrawler {
         return true;
     }
 
-    public String[] queryWords(String query) {
-        String[] words = query.split("\\s+");
-        return words;
-    }
 
-    public int calcScore(String oldPage, URL url, String query) {
-        int score = 0;
-        String body = "";
-        String linkString = "";
-        String[] querywords = queryWords(query);
-        for(String word: querywords) {
-            if (body.contains(word)) {
-               score += 50;
-            }
-            if (linkString.contains(word)) {
-                score += 40;
-            }
+//    public int calcScore(String oldPage, URL url, List<String> query) {
+//        int score = 0;
+//        String body = "";
+//        String linkString = "";
+//        String[] querywords = queryWords(query);
+//        for(String word: querywords) {
+//            if (body.contains(word)) {
+//               score += 50;
+//            }
+//            if (linkString.contains(word)) {
+//                score += 40;
+//            }
+//
+//        }
+//        return score;
+//    }
 
-        }
-        return score;
-    }
-
-    public void addNewurl(URL oldURL, String newUrlString, String query, String oldPage)
-
-    { URL url;
-        if (DEBUG) System.out.println("URL String " + newUrlString);
-        try { url = new URL(oldURL,newUrlString);
-            int linkScore = calcScore(oldPage, url, query);
-            URLInfo urlInfo = new URLInfo(url, linkScore);
-            if (!seenUrls.containsKey(url)) {
-                String filename =  url.getFile();
-                int iSuffix = filename.lastIndexOf("htm");
-                if ((iSuffix == filename.length() - 3) ||
-                        (iSuffix == filename.length() - 4)) {
-                    seenUrls.put(url,new Integer(1));
-//                    int linkScore = calcScore(oldPage, url, query);
-//                    URLInfo urlInfo = new URLInfo(url, linkScore);
-                    newUrls.add(urlInfo);
-                    System.out.println("Found new URL " + url.toString());
-                } } }
-        catch (MalformedURLException e) { return; }
-    }
+//    public void addNewurl(URL oldURL, String newUrlString, List<String> query, String oldPage)
+//
+//    { URL url;
+//        if (DEBUG) System.out.println("URL String " + newUrlString);
+//        try { url = new URL(oldURL,newUrlString);
+//            int linkScore = calcScore(oldPage, url, query);
+//            URLInfo urlInfo = new URLInfo(url, linkScore);
+//            if (!seenUrls.containsKey(url) && !newUrls.contains(urlInfo)) {
+//                String filename =  url.getFile();
+//                int iSuffix = filename.lastIndexOf("htm");
+//                if ((iSuffix == filename.length() - 3) ||
+//                        (iSuffix == filename.length() - 4)) {
+//                    seenUrls.put(url,new Integer(1));
+////                    int linkScore = calcScore(oldPage, url, query);
+////                    URLInfo urlInfo = new URLInfo(url, linkScore);
+//                    newUrls.add(urlInfo);
+//                    System.out.println("Found new URL " + url.toString());
+//                } } }
+//        catch (MalformedURLException e) { return; }
+//    }
 
     public String getPage(URL url)
 
@@ -189,6 +187,7 @@ public class WebCrawler {
                 content += newContent;
             }
         }
+        plainContent = new ArrayList<>(Arrays.asList(content.replaceAll("\\<.*?>","").replaceAll("[^a-zA-Z\\s]", "").split("\\s+")));
         return content;
 
     } catch (IOException e) {
@@ -196,7 +195,7 @@ public class WebCrawler {
         return "";
     }  }
 
-    public void processPage(URL url, String page, String query)
+    public void processPage(URL url, String page, List<String> query)
 
     { String lcPage = page.toLowerCase(); // Page in lower case
         int index = 0; // position in page
@@ -214,7 +213,7 @@ public class WebCrawler {
                         if ((iHatchMark != -1) && (iHatchMark < iCloseQuote))
                             iEnd = iHatchMark;
                         String newUrlString = page.substring(iURL,iEnd);
-                        addNewurl(url, newUrlString, query, page);
+//                        addNewurl(url, newUrlString, query, page);
                     } } }
             index = iEndAngle;
         }
@@ -223,13 +222,13 @@ public class WebCrawler {
     public void run(String[] args){
         parsingArgs(args);
         initialize(args);
-        for (int i = 0; i < maxPages; i++) {
+        for (int i = 0; i < fileLimit; i++) {
             URL url = newUrls.poll().getUrl();
             if (DEBUG) System.out.println("Searching " + url.toString());
             if (robotSafe(url)) {
                 String page = getPage(url);
                 if (DEBUG) System.out.println(page);
-                if (page.length() != 0) processPage(url, page, args[1]);
+                if (page.length() != 0) processPage(url, page, argsMap.get("-q"));
                 if (newUrls.isEmpty()) break;
             }
         }
