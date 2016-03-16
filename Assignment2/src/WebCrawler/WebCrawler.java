@@ -19,23 +19,39 @@ public class WebCrawler {
     public static List<String> plainContent;
 
     static void parsingArgs (String[] args) {
+        int argsNumber = args.length;
+        int count = 0;
         String flag = "";
         List<String> fArgs = new ArrayList<>();
+
         for (String arg:args) {
             if (arg.charAt(0) == '-') {
-                if (!flag.equals("")) {
+                if (!flag.equals("") && arg.charAt(1) != 't') {
                     argsMap.put(flag, new ArrayList<>(fArgs));
                     fArgs.clear();
+                } else if (!flag.equals("") && arg.charAt(1) == 't'){
+                    argsMap.put(flag, new ArrayList<>(fArgs));
+                    fArgs.clear();
+                    fArgs.add("true");
+                    argsMap.put(arg, new ArrayList<>(fArgs));
                 }
                 flag = arg;
+                count ++;
             } else {
+                count ++;
                 fArgs.add(arg);
+                if (count == argsNumber) {
+                    argsMap.put(flag, new ArrayList<>(fArgs));
+                }
             }
         }
     }
 
-    static void initialize(String[] args) {
+    static void initialize() {
         URL url;
+        if (argsMap.containsKey("-t")) {
+            DEBUG = Boolean.valueOf(argsMap.get("-t").get(0));
+        }
         fileLocation = argsMap.get("-docs").get(0);
         maxPages = Integer.parseInt(argsMap.get("-m").get(0));
         newUrls =
@@ -66,7 +82,7 @@ public class WebCrawler {
         System.setProperties(newprops);
     }
 
-    public boolean robotSafe(URL url) {
+    static boolean robotSafe(URL url) {
         String strHost = url.getHost();
         if (strHost.length() == 0) {
             return false;
@@ -127,45 +143,59 @@ public class WebCrawler {
     }
 
 
-//    public int calcScore(String oldPage, URL url, List<String> query) {
-//        int score = 0;
-//        String body = "";
-//        String linkString = "";
-//        String[] querywords = queryWords(query);
-//        for(String word: querywords) {
-//            if (body.contains(word)) {
-//               score += 50;
-//            }
-//            if (linkString.contains(word)) {
-//                score += 40;
-//            }
-//
-//        }
-//        return score;
-//    }
+    static int calcScore(List<String> plainContent, String newUrlString, List<String> query, String mAnchor) {
+        int score;
+        int anchorNumber = 0;
+        int urlNumber = 0;
+        int uNumber = 0;
+        int vNumber = 0;
+        String[] anchorWords = mAnchor.replaceAll("[^a-zA-Z\\s]", "").toLowerCase().split("\\s+");
+        int ibegin = plainContent.indexOf(anchorWords[0]);
+        int iend = plainContent.indexOf(anchorWords[anchorWords.length - 1]);
+        for (String word:query) {
+            if (mAnchor.contains(word.toLowerCase())) {
+                anchorNumber ++;
+            } else if (newUrlString.contains(word.toLowerCase())) {
+                urlNumber ++;
+            } else if (plainContent.subList(ibegin - 5, ibegin).contains(word) || plainContent.subList(iend + 1, iend + 6).contains(word)) {
+                uNumber ++;
+            } else if (plainContent.subList(0, ibegin - 5).contains(word) || plainContent.subList(iend + 6, plainContent.size()).contains(word)) {
+                vNumber ++;
+            }
+        }
 
-//    public void addNewurl(URL oldURL, String newUrlString, List<String> query, String oldPage)
-//
-//    { URL url;
-//        if (DEBUG) System.out.println("URL String " + newUrlString);
-//        try { url = new URL(oldURL,newUrlString);
-//            int linkScore = calcScore(oldPage, url, query);
-//            URLInfo urlInfo = new URLInfo(url, linkScore);
-//            if (!seenUrls.containsKey(url) && !newUrls.contains(urlInfo)) {
-//                String filename =  url.getFile();
-//                int iSuffix = filename.lastIndexOf("htm");
-//                if ((iSuffix == filename.length() - 3) ||
-//                        (iSuffix == filename.length() - 4)) {
-//                    seenUrls.put(url,new Integer(1));
-////                    int linkScore = calcScore(oldPage, url, query);
-////                    URLInfo urlInfo = new URLInfo(url, linkScore);
-//                    newUrls.add(urlInfo);
-//                    System.out.println("Found new URL " + url.toString());
-//                } } }
-//        catch (MalformedURLException e) { return; }
-//    }
+        if (anchorNumber != 0) {
+            score  = 50 * anchorNumber;
+        } else if (urlNumber != 0) {
+            score = 40 * urlNumber;
+        } else {
+            score = Math.abs(4 * uNumber) + Math.abs(uNumber - vNumber);
+        }
+        return score;
+    }
 
-    public String getPage(URL url)
+    static void addNewurl(URL oldURL, String newUrlString, List<String> query, List<String> plainContent, String mAnchor)
+
+    { URL url;
+        if (DEBUG) System.out.println("URL String " + newUrlString);
+        try { url = new URL(oldURL,newUrlString);
+            int linkScore = calcScore(plainContent, newUrlString, query, mAnchor);
+            URLInfo urlInfo = new URLInfo(url, linkScore);
+            if (!seenUrls.containsKey(url) && !newUrls.contains(urlInfo)) {
+                String filename =  url.getFile();
+                int iSuffix = filename.lastIndexOf("htm");
+                if ((iSuffix == filename.length() - 3) ||
+                        (iSuffix == filename.length() - 4)) {
+                    seenUrls.put(oldURL,new Integer(1));
+//                    int linkScore = calcScore(oldPage, url, query);
+//                    URLInfo urlInfo = new URLInfo(url, linkScore);
+                    newUrls.add(urlInfo);
+                    System.out.println("Found new URL " + url.toString());
+                } } }
+        catch (MalformedURLException e) { return; }
+    }
+
+    static String getPage(URL url)
 
     { try {
         // try opening the URL
@@ -187,7 +217,7 @@ public class WebCrawler {
                 content += newContent;
             }
         }
-        plainContent = new ArrayList<>(Arrays.asList(content.replaceAll("\\<.*?>","").replaceAll("[^a-zA-Z\\s]", "").split("\\s+")));
+        plainContent = new ArrayList<>(Arrays.asList(content.toLowerCase().replaceAll("\\<.*?>","").replaceAll("[^a-zA-Z\\s]", "").split("\\s+")));
         return content;
 
     } catch (IOException e) {
@@ -195,7 +225,7 @@ public class WebCrawler {
         return "";
     }  }
 
-    public void processPage(URL url, String page, List<String> query)
+    static void processPage(URL url, String page, List<String> query)
 
     { String lcPage = page.toLowerCase(); // Page in lower case
         int index = 0; // position in page
@@ -212,16 +242,18 @@ public class WebCrawler {
                         iEnd = iCloseQuote;
                         if ((iHatchMark != -1) && (iHatchMark < iCloseQuote))
                             iEnd = iHatchMark;
+                        int ianchorEnd = lcPage.indexOf("<", iEnd);
+                        String mAnchor = page.substring(iEnd + 2, ianchorEnd);
                         String newUrlString = page.substring(iURL,iEnd);
-//                        addNewurl(url, newUrlString, query, page);
+                        addNewurl(url, newUrlString, query, plainContent, mAnchor);
                     } } }
             index = iEndAngle;
         }
     }
 
-    public void run(String[] args){
+    static void run(String[] args){
         parsingArgs(args);
-        initialize(args);
+        initialize();
         for (int i = 0; i < fileLimit; i++) {
             URL url = newUrls.poll().getUrl();
             if (DEBUG) System.out.println("Searching " + url.toString());
@@ -235,7 +267,8 @@ public class WebCrawler {
         System.out.println("Search complete.");
     }
     public static void main(String[] args) {
-        WebCrawler webCrawler = new WebCrawler();
-        webCrawler.run(args);
+//        WebCrawler webCrawler = new WebCrawler();
+//        webCrawler.run(args);
+        run(args);
     }
 }
