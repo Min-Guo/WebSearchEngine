@@ -4,6 +4,7 @@ import java.net.*;
 
 public class URLInfo {
     URL url;
+    int order;
     int linkScore;
 
 //    public void setUrl(String urlString) {
@@ -28,9 +29,14 @@ public class URLInfo {
         return linkScore;
     }
 
-    public URLInfo(URL url, int linkScore) {
+    public URLInfo(URL url, int linkScore, int order) {
         this.url = url;
         this.linkScore = linkScore;
+        this.order = order;
+    }
+
+    public int getOrder() {
+        return order;
     }
 
     public boolean sameUrl (String newUrl) {

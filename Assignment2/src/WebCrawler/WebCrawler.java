@@ -16,7 +16,7 @@ public class WebCrawler {
     public static int maxPages = 0;
     public static final int fileLimit = 20000;
     public static final Map<String, List<String>> argsMap = new HashMap<>();
-    public static List<String> plainContent;
+    public static String plainContent;
 
     static void parsingArgs (String[] args) {
         int argsNumber = args.length;
@@ -64,7 +64,8 @@ public class WebCrawler {
         }
         seenUrls.put(url,new Integer(1));
         int linkScore = 0;
-        URLInfo urlInfo = new URLInfo(url, linkScore);
+        int order = 0;
+        URLInfo urlInfo = new URLInfo(url, linkScore, order);
         newUrls.add(urlInfo);
         System.out.println("Starting search: Initial URL " + url.toString());
 //        if (args.length > 4) {
@@ -143,36 +144,33 @@ public class WebCrawler {
     }
 
 
-    static int calcScore(List<String> plainContent, String newUrlString, List<String> query, String mAnchor) {
+    static int calcScore(String uvWords, String newUrlString, List<String> query, String mAnchor) {
         int score;
         int anchorNumber = 0;
-        int urlNumber = 0;
-        int uNumber = 0;
-        int vNumber = 0;
-        String[] anchorWords = mAnchor.replaceAll("[^a-zA-Z\\s]", "").toLowerCase().split("\\s+");
-        int ibegin = plainContent.indexOf(anchorWords[0]);
-        int iend = plainContent.indexOf(anchorWords[anchorWords.length - 1]);
+        int tagCount = 0;
+        int uCount = 0;
+        int vCount = 0;
         for (String word:query) {
             if (mAnchor.toLowerCase().contains(word.toLowerCase())) {
                 anchorNumber ++;
             } else if (newUrlString.toLowerCase().contains(word.toLowerCase())) {
-                urlNumber ++;
+                tagCount ++;
             } else {
-                if(plainContent.subList(ibegin - 5, ibegin).contains(word) || plainContent.subList(iend + 1, iend + 6).contains(word)) {
-                    uNumber ++;
+                if(uvWords.contains(word.toLowerCase())) {
+                    uCount ++;
                 }
-                if (plainContent.contains(word)) {
-                    vNumber++;
+                if (plainContent.contains(word.toLowerCase())) {
+                    vCount++;
                 }
             }
         }
 
         if (anchorNumber != 0) {
             score  = 50 * anchorNumber;
-        } else if (urlNumber != 0) {
-            score = 40 * urlNumber;
+        } else if (tagCount != 0) {
+            score = 40 * tagCount;
         } else {
-            score = Math.abs(4 * uNumber) + Math.abs(vNumber - uNumber);
+            score = Math.abs(4 * uCount) + Math.abs(vCount - uCount);
         }
         return score;
     }
@@ -196,13 +194,13 @@ public class WebCrawler {
     }
 
 
-    static void addNewurl(URL oldURL, String newUrlString, List<String> query, List<String> plainContent, String mAnchor)
+    static void addNewurl(URL oldURL, String newUrlString, List<String> query, String uvWords, String mAnchor, int order)
 
     { URL url;
         if (DEBUG) System.out.println("URL String " + newUrlString);
         try { url = new URL(oldURL,newUrlString);
-            int linkScore = calcScore(plainContent, newUrlString, query, mAnchor);
-            URLInfo urlInfo = new URLInfo(url, linkScore);
+            int linkScore = calcScore(uvWords, newUrlString, query, mAnchor);
+            URLInfo urlInfo = new URLInfo(url, linkScore, order);
             if (!seenUrls.containsKey(url)) {
                 if (!duplicateNewUrl(url.toString())) {
                     String filename =  url.getFile();
@@ -244,7 +242,7 @@ public class WebCrawler {
                 content += newContent;
             }
         }
-        plainContent = new ArrayList<>(Arrays.asList(content.toLowerCase().replaceAll("\\<.*?>","").replaceAll("[^a-zA-Z\\s]", "").split("\\s+")));
+        plainContent = content.toLowerCase().replaceAll("\\<.*?>","").replaceAll("[^a-zA-Z\\s]", "");
         return content;
 
     } catch (IOException e) {
@@ -259,37 +257,51 @@ public class WebCrawler {
         int frontIndexCopy = frontIndex;
         Character fCharacter = lcpage.charAt(frontIndexCopy);
 
-        // skip white space
-        while (fCharacter == ' ') {
-            frontIndexCopy --;
-            fCharacter = lcpage.charAt(frontIndexCopy);
-        }
-
-        while (wordCount < 5) {
-            if (Character.isLetter(fCharacter)) {
-                wordEnd = frontIndexCopy;
-                while (Character.isLetter(fCharacter)) {
-                    frontIndexCopy --;
-                    fCharacter = lcpage.charAt(frontIndexCopy);
-                }
-                if ((wordEnd - frontIndexCopy) == 1) {
-                    frontFive = String.valueOf(lcpage.charAt(wordEnd)) + " " + frontFive;
-                } else {
-                    frontFive = lcpage.substring(frontIndexCopy + 1, wordEnd + 1) + " " + frontFive;
-                }
-                wordCount ++;
-            } else {
-                if (fCharacter != '>') {
-                    frontIndexCopy --;
-                    fCharacter = lcpage.charAt(frontIndexCopy);
-                }
-                if (fCharacter == '>') {
-                    while (fCharacter != '<') {
-                        frontIndexCopy--;
-                        fCharacter = lcpage.charAt(frontIndexCopy);
+        if (frontIndexCopy >= 0) {
+            // skip white space
+            while (fCharacter == ' ' && frontIndex >= 0) {
+                frontIndexCopy--;
+                fCharacter = lcpage.charAt(frontIndexCopy);
+            }
+            if (frontIndexCopy >= 0) {
+                while (wordCount < 5 && frontIndexCopy >= 0) {
+                    if (Character.isLetter(fCharacter)) {
+                        wordEnd = frontIndexCopy;
+                        while (Character.isLetter(fCharacter)) {
+                            frontIndexCopy--;
+                            if (frontIndexCopy < 0) {
+                                break;
+                            } else {
+                                fCharacter = lcpage.charAt(frontIndexCopy);
+                            }
+                        }
+                        if ((wordEnd - frontIndexCopy) == 1 && frontIndexCopy >= 0) {
+                            frontFive = String.valueOf(lcpage.charAt(wordEnd)) + " " + frontFive;
+                        } else if (frontIndexCopy > 0){
+                            frontFive = lcpage.substring(frontIndexCopy + 1, wordEnd + 1) + " " + frontFive;
+                        }
+                        wordCount++;
+                    } else {
+                        if (fCharacter != '>') {
+                            frontIndexCopy--;
+                            if (frontIndexCopy >= 0) {
+                                fCharacter = lcpage.charAt(frontIndexCopy);
+                            }
+                        }
+                        if (fCharacter == '>') {
+                            while (fCharacter != '<') {
+                                frontIndexCopy--;
+                                if (frontIndexCopy < 0) {
+                                    break;
+                                } else {
+                                    fCharacter = lcpage.charAt(frontIndexCopy);
+                                }
+                            }
+                        }
                     }
                 }
             }
+
         }
         return frontFive;
     }
@@ -301,34 +313,48 @@ public class WebCrawler {
         int backIndexCopy = backIndex;
         Character bCharacter = lcpage.charAt(backIndexCopy);
 
-        // skip white space
-        while (bCharacter == ' ') {
-            backIndexCopy ++;
-            bCharacter = lcpage.charAt(backIndexCopy);
-        }
+        if (backIndex < lcpage.length()) {
+            // skip white space
+            while (bCharacter == ' ' && backIndexCopy < lcpage.length()) {
+                backIndexCopy++;
+                bCharacter = lcpage.charAt(backIndexCopy);
+            }
 
-        while (wordCount < 5) {
-            if (Character.isLetter(bCharacter)) {
-                wordBegin = backIndexCopy;
-                while (Character.isLetter(bCharacter)) {
-                    backIndexCopy ++;
-                    bCharacter = lcpage.charAt(backIndexCopy);
-                }
-                if ((wordBegin - backIndexCopy) == 1) {
-                    backFive = backFive + " " + String.valueOf(lcpage.charAt(wordBegin));
-                } else {
-                    backFive = backFive + " " + lcpage.substring(wordBegin, backIndexCopy);
-                }
-                wordCount ++;
-            } else {
-                if (bCharacter != '<') {
-                    backIndexCopy ++;
-                    bCharacter = lcpage.charAt(backIndexCopy);
-                }
-                if (bCharacter == '<') {
-                    while (bCharacter != '>') {
-                        backIndexCopy++;
-                        bCharacter = lcpage.charAt(backIndexCopy);
+            if (backIndexCopy < lcpage.length()) {
+                while (wordCount < 5 && backIndexCopy < lcpage.length()) {
+                    if (Character.isLetter(bCharacter)) {
+                        wordBegin = backIndexCopy;
+                        while (Character.isLetter(bCharacter)) {
+                            backIndexCopy++;
+                            if (backIndexCopy >= lcpage.length()) {
+                                break;
+                            } else {
+                                bCharacter = lcpage.charAt(backIndexCopy);
+                            }
+                        }
+                        if ((wordBegin - backIndexCopy) == 1 && backIndexCopy < lcpage.length()) {
+                            backFive = backFive + " " + String.valueOf(lcpage.charAt(wordBegin));
+                        } else if (backIndexCopy < lcpage.length()){
+                            backFive = backFive + " " + lcpage.substring(wordBegin, backIndexCopy);
+                        }
+                        wordCount++;
+                    } else {
+                        if (bCharacter != '<') {
+                            backIndexCopy++;
+                            if (backIndexCopy < lcpage.length()) {
+                                bCharacter = lcpage.charAt(backIndexCopy);
+                            }
+                        }
+                        if (bCharacter == '<') {
+                            while (bCharacter != '>') {
+                                backIndexCopy++;
+                                if (backIndexCopy >= lcpage.length()) {
+                                    break;
+                                } else {
+                                    bCharacter = lcpage.charAt(backIndexCopy);
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -344,6 +370,7 @@ public class WebCrawler {
 
     { String lcPage = page.toLowerCase(); // Page in lower case
         int index = 0; // position in page
+        int order = 1;
         int iEndAngle, ihref, iURL, iCloseQuote, iHatchMark, iEnd;
         while ((index = lcPage.indexOf("<a",index)) != -1) {
             iEndAngle = lcPage.indexOf(">",index);
@@ -359,11 +386,14 @@ public class WebCrawler {
                             iEnd = iHatchMark;
                         int ianchorEnd = lcPage.indexOf("<", iEnd);
                         int ilinkEnd = lcPage.indexOf(">", ianchorEnd);
-                        String five = findFiveWords(index - 1, ilinkEnd + 1, lcPage);
+                        String uvWords = findFiveWords(index - 1, ilinkEnd + 1, lcPage);
                         String mAnchor = page.substring(iEnd + 2, ianchorEnd);
                         String newUrlString = page.substring(iURL,iEnd);
                         seenUrls.put(url ,new Integer(1));
-                        addNewurl(url, newUrlString, query, plainContent, mAnchor);
+                        if (!newUrlString.toLowerCase().equals("MarineMammal.html".toLowerCase())) {
+                            addNewurl(url, newUrlString, query, uvWords, mAnchor, order);
+                            order ++;
+                        }
                     } } }
             index = iEndAngle;
         }
