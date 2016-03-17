@@ -20,9 +20,9 @@ public class URLInfo {
         return this.url;
     }
 
-//    public void setLinkScore (int score) {
-//        this.linkScore = score;
-//    }
+    public void setLinkScore (int score) {
+        this.linkScore = score;
+    }
 
     public int getLinkScore() {
         return linkScore;
@@ -31,5 +31,9 @@ public class URLInfo {
     public URLInfo(URL url, int linkScore) {
         this.url = url;
         this.linkScore = linkScore;
+    }
+
+    public boolean sameUrl (String newUrl) {
+        return this.url.toString().equals(newUrl);
     }
 }
