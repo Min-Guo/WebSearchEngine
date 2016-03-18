@@ -1,5 +1,4 @@
 package WebCrawler;
-import java.lang.reflect.Array;
 import java.util.*;
 import java.net.*;
 import java.io.*;
@@ -215,7 +214,7 @@ public class WebCrawler {
                         seenUrls.put(oldURL,new Integer(1));
                         newUrls.add(urlInfo);
                         order ++;
-                        System.out.println("Adding to queue: " + url.toString() + "score: " + linkScore);
+                        System.out.println("Adding to queue: " + url.toString() + " score = " + linkScore);
                      }
                 } else if (duplicateNewUrl(url.toString())){
                     updateScore(linkScore, urlInfo);
@@ -449,8 +448,8 @@ public class WebCrawler {
         System.out.println("Search complete.");
     }
     public static void main(String[] args) throws  Exception{
-//        WebCrawler webCrawler = new WebCrawler();
-//        webCrawler.run(args);
+        WebCrawler webCrawler = new WebCrawler();
+        webCrawler.run(args);
         run(args);
     }
 }

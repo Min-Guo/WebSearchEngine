@@ -29,7 +29,11 @@ public class URLInfo {
         this.url = url;
         this.linkScore = linkScore;
         this.order = order;
-        this.pageName = pageName + ".html";
+        if (!pageName.contains(".html")) {
+            this.pageName = pageName + ".html";
+        } else {
+            this.pageName = pageName;
+        }
     }
 
     public int getOrder() {
