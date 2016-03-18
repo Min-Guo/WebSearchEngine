@@ -16,17 +16,25 @@ public class URLInfo {
 //            return;
 //        }
 //    }
+    public void setLinkScore(int score) {
+        this.linkScore = score;
+    }
 
     public URL getUrl() {
         return this.url;
     }
 
-    public void setLinkScore (int score) {
-        this.linkScore = score;
+    public String getUrlString () {
+        return this.url.toString();
+    }
+
+
+    public void updateScore (int score) {
+        this.linkScore = linkScore + score;
     }
 
     public int getLinkScore() {
-        return linkScore;
+        return this.linkScore;
     }
 
     public URLInfo(URL url, int linkScore, int order) {

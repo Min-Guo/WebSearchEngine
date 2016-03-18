@@ -184,13 +184,15 @@ public class WebCrawler {
         return false;
     }
 
-    static void updateScore (int score, String url) {
+    static URLInfo updateScore (int score, URLInfo info) {
         for (URLInfo urlInfo: newUrls) {
-            if (urlInfo.sameUrl(url)) {
-                urlInfo.setLinkScore(score);
+            if (urlInfo.sameUrl(info.getUrlString())) {
+                urlInfo.updateScore(score);
+                info.setLinkScore(urlInfo.getLinkScore());
+                break;
             }
-            break;
         }
+        return info;
     }
 
 
@@ -213,8 +215,8 @@ public class WebCrawler {
 //                      System.out.println("Found new URL " + url.toString());
                      }
                 } else if (duplicateNewUrl(url.toString())){
-                    updateScore(linkScore, url.toString());
-                    System.out.println("adding score " + linkScore + "to queue" + url.toString());
+                    urlInfo = updateScore(linkScore, urlInfo);
+                    System.out.println("adding score " + linkScore + " to queue " + url.toString() + " " + urlInfo.getLinkScore());
                 }
             }
         } catch (MalformedURLException e) { return; }
@@ -388,13 +390,16 @@ public class WebCrawler {
                         int ilinkEnd = lcPage.indexOf(">", ianchorEnd);
                         String uvWords = findFiveWords(index - 1, ilinkEnd + 1, lcPage);
                         String mAnchor = page.substring(iEnd + 2, ianchorEnd);
+                        if (mAnchor.equals("dolphins")) {
+                            System.out.println("");
+                        }
                         String newUrlString = page.substring(iURL,iEnd);
                         seenUrls.put(url ,new Integer(1));
-                        if (!newUrlString.toLowerCase().equals("MarineMammal.html".toLowerCase())) {
                             addNewurl(url, newUrlString, query, uvWords, mAnchor, order);
                             order ++;
-                        }
-                    } } }
+                    }
+                }
+            }
             index = iEndAngle;
         }
     }
@@ -403,13 +408,17 @@ public class WebCrawler {
         parsingArgs(args);
         initialize();
         for (int i = 0; i < fileLimit; i++) {
-            URL url = newUrls.poll().getUrl();
-            if (DEBUG) System.out.println("Searching " + url.toString());
-            if (robotSafe(url)) {
-                String page = getPage(url);
-                if (DEBUG) System.out.println(page);
-                if (page.length() != 0) processPage(url, page, argsMap.get("-q"));
-                if (newUrls.isEmpty()) break;
+            if (seenUrls.size() < maxPages) {
+                URL url = newUrls.poll().getUrl();
+                if (DEBUG) System.out.println("Searching " + url.toString());
+                if (robotSafe(url)) {
+                    String page = getPage(url);
+                    if (DEBUG) System.out.println(page);
+                    if (page.length() != 0) processPage(url, page, argsMap.get("-q"));
+                    if (newUrls.isEmpty()) break;
+                }
+            } else {
+                break;
             }
         }
         System.out.println("Search complete.");
