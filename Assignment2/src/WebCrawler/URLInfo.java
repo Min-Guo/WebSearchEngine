@@ -13,21 +13,12 @@ public class URLInfo {
         return this.pageName;
     }
 
-    public void setLinkScore(int score) {
-        this.linkScore = score;
-    }
-
     public URL getUrl() {
         return this.url;
     }
 
     public String getUrlString () {
         return this.url.toString();
-    }
-
-
-    public void updateScore (int score) {
-        this.linkScore = linkScore + score;
     }
 
     public int getLinkScore() {

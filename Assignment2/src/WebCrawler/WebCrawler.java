@@ -1,4 +1,5 @@
 package WebCrawler;
+import java.lang.reflect.Array;
 import java.util.*;
 import java.net.*;
 import java.io.*;
@@ -14,7 +15,9 @@ public class WebCrawler {
     public static int maxPages = 0;
     public static final int fileLimit = 20000;
     public static final Map<String, List<String>> argsMap = new HashMap<>();
-    public static String plainContent;
+    public static List<String> textWords;
+    public static int order;
+
 
     static void parsingArgs (String[] args) {
         int argsNumber = args.length;
@@ -62,9 +65,8 @@ public class WebCrawler {
         }
         seenUrls.put(url,new Integer(1));
         int linkScore = 0;
-        int order = 0;
         String pageName = "source";
-        URLInfo urlInfo = new URLInfo(url, linkScore, order, pageName);
+        URLInfo urlInfo = new URLInfo(url, linkScore, 0, pageName);
         newUrls.add(urlInfo);
         System.out.println("Starting search: Initial URL " + url.toString());
 
@@ -139,7 +141,7 @@ public class WebCrawler {
     }
 
 
-    static int calcScore(String uvWords, String newUrlString, List<String> query, String mAnchor) {
+    static int calcScore(List<String> uvWords, String newUrlString, List<String> query, String mAnchor) {
         int score;
         int anchorNumber = 0;
         int tagCount = 0;
@@ -154,7 +156,7 @@ public class WebCrawler {
                 if(uvWords.contains(word.toLowerCase())) {
                     uCount ++;
                 }
-                if (plainContent.contains(word.toLowerCase())) {
+                if (textWords.contains(word.toLowerCase())) {
                     vCount++;
                 }
             }
@@ -182,8 +184,14 @@ public class WebCrawler {
     static URLInfo updateScore (int score, URLInfo info) {
         for (URLInfo urlInfo: newUrls) {
             if (urlInfo.sameUrl(info.getUrlString())) {
-                urlInfo.updateScore(score);
-                info.setLinkScore(urlInfo.getLinkScore());
+                int orignalScore = urlInfo.getLinkScore();
+                URL url= urlInfo.getUrl();
+                int newScore = orignalScore + score;
+                int originalOrder = urlInfo.getOrder();
+                String pageName = urlInfo.getPageName();
+                URLInfo updateInfo = new URLInfo(url, newScore, originalOrder, pageName);
+                newUrls.remove(urlInfo);
+                newUrls.add(updateInfo);
                 break;
             }
         }
@@ -191,13 +199,13 @@ public class WebCrawler {
     }
 
 
-    static void addNewurl(URL oldURL, String newUrlString, List<String> query, String uvWords, String mAnchor, int order)
+    static void addNewurl(URL oldURL, String newUrlString, List<String> query, List<String> uvWords, String mAnchor, int urlOrder)
 
     { URL url;
         if (DEBUG) System.out.println("URL String " + newUrlString);
         try { url = new URL(oldURL,newUrlString);
             int linkScore = calcScore(uvWords, newUrlString, query, mAnchor);
-            URLInfo urlInfo = new URLInfo(url, linkScore, order, mAnchor);
+            URLInfo urlInfo = new URLInfo(url, linkScore, urlOrder, mAnchor);
             if (!seenUrls.containsKey(url)) {
                 if (!duplicateNewUrl(url.toString())) {
                     String filename =  url.getFile();
@@ -206,12 +214,12 @@ public class WebCrawler {
                         (iSuffix == filename.length() - 4)) {
                         seenUrls.put(oldURL,new Integer(1));
                         newUrls.add(urlInfo);
-                        System.out.println("adding to queue: " + url.toString() + "score: " + linkScore);
-//                      System.out.println("Found new URL " + url.toString());
+                        order ++;
+                        System.out.println("Adding to queue: " + url.toString() + "score: " + linkScore);
                      }
                 } else if (duplicateNewUrl(url.toString())){
-                    urlInfo = updateScore(linkScore, urlInfo);
-                    System.out.println("adding score " + linkScore + " to queue " + url.toString() + " " + urlInfo.getLinkScore());
+                    updateScore(linkScore, urlInfo);
+                    System.out.println("Adding " + linkScore + " to score of " + url.toString());
                 }
             }
         } catch (MalformedURLException e) { return; }
@@ -238,12 +246,13 @@ public class WebCrawler {
         out.close();
     }
 
-    static String getPage(URL url) throws Exception
+    static String getPage(URL url, int score) throws Exception
 
     { try {
         // try opening the URL
         URLConnection urlConnection = url.openConnection();
-        System.out.println("Downloading " + url.toString());
+        System.out.println("Downloading " + url.toString() + ". Score = " + String.valueOf(score));
+        System.out.println("Received: " + url.toString());
         urlConnection.setAllowUserInteraction(false);
 
         InputStream urlStream = url.openStream();
@@ -259,7 +268,7 @@ public class WebCrawler {
                 content += newContent;
             }
         }
-        plainContent = content.toLowerCase().replaceAll("\\<.*?>","").replaceAll("[^a-zA-Z\\s]", "");
+        textWords = Arrays.asList(content.toLowerCase().replaceAll("\\<.*?>","").replaceAll("[^a-zA-Z\\s]", "").split("\\s+"));
         return content;
 
     } catch (IOException e) {
@@ -267,7 +276,7 @@ public class WebCrawler {
         return "";
     }  }
 
-    static String findFrontFive (int frontIndex, String lcpage) {
+    static List<String> findFrontFive (int frontIndex, String lcpage) {
         String frontFive = "";
         int wordCount = 0;
         int wordEnd;
@@ -320,10 +329,10 @@ public class WebCrawler {
             }
 
         }
-        return frontFive;
+        return Arrays.asList(frontFive.split("\\s+"));
     }
 
-    static String findBackFive (int backIndex, String lcpage) {
+    static List<String> findBackFive (int backIndex, String lcpage) {
         String backFive = "";
         int wordCount = 0;
         int wordBegin;
@@ -376,18 +385,20 @@ public class WebCrawler {
                 }
             }
         }
-        return backFive;
+        return Arrays.asList(backFive.split("\\s+"));
     }
 
-    static String findFiveWords (int frontIndex, int backIndex, String lcpage) {
-        return findFrontFive(frontIndex, lcpage) + findBackFive(backIndex, lcpage);
+    static List<String> findFiveWords (int frontIndex, int backIndex, String lcpage) {
+        List<String> totalWords = new ArrayList<>();
+        totalWords.addAll(findFrontFive(frontIndex, lcpage));
+        totalWords.addAll(findBackFive(backIndex, lcpage));
+        return totalWords;
     }
 
     static void processPage(URL url, String page, List<String> query)
 
     { String lcPage = page.toLowerCase(); // Page in lower case
-        int index = 0; // position in page
-        int order = 1;
+        int index = 0;
         int iEndAngle, ihref, iURL, iCloseQuote, iHatchMark, iEnd;
         while ((index = lcPage.indexOf("<a",index)) != -1) {
             iEndAngle = lcPage.indexOf(">",index);
@@ -403,12 +414,11 @@ public class WebCrawler {
                             iEnd = iHatchMark;
                         int ianchorEnd = lcPage.indexOf("<", iEnd);
                         int ilinkEnd = lcPage.indexOf(">", ianchorEnd);
-                        String uvWords = findFiveWords(index - 1, ilinkEnd + 1, lcPage);
+                        List<String> uvWords = findFiveWords(index - 1, ilinkEnd + 1, lcPage);
                         String mAnchor = page.substring(iEnd + 2, ianchorEnd).replaceAll("[^a-zA-Z ]", "");
                         String newUrlString = page.substring(iURL,iEnd);
                         seenUrls.put(url ,new Integer(1));
-                            addNewurl(url, newUrlString, query, uvWords, mAnchor, order);
-                            order ++;
+                        addNewurl(url, newUrlString, query, uvWords, mAnchor, order);
                     }
                 }
             }
@@ -425,9 +435,10 @@ public class WebCrawler {
                 URL url = urlInfo.getUrl();
                 if (DEBUG) System.out.println("Searching " + url.toString());
                 if (robotSafe(url)) {
-                    String page = getPage(url);
+                    String page = getPage(url, urlInfo.getLinkScore());
                     if (DEBUG) System.out.println(page);
                     if (page.length() != 0) processPage(url, page, argsMap.get("-q"));
+                    System.out.println();
                     savePage(url, urlInfo.getPageName());
                     if (newUrls.isEmpty()) break;
                 }
