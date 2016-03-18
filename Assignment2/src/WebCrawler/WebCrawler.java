@@ -1,6 +1,4 @@
 package WebCrawler;
-import sun.java2d.pipe.AAShapePipe;
-
 import java.util.*;
 import java.net.*;
 import java.io.*;
@@ -17,6 +15,7 @@ public class WebCrawler {
     public static final int fileLimit = 20000;
     public static final Map<String, List<String>> argsMap = new HashMap<>();
     public static String plainContent;
+    public static String pageName = "";
 
     static void parsingArgs (String[] args) {
         int argsNumber = args.length;
@@ -68,10 +67,6 @@ public class WebCrawler {
         URLInfo urlInfo = new URLInfo(url, linkScore, order);
         newUrls.add(urlInfo);
         System.out.println("Starting search: Initial URL " + url.toString());
-//        if (args.length > 4) {
-//            int iPages = Integer.parseInt(args[3]);
-//            if (iPages < maxPages) maxPages = iPages; }
-//        System.out.println("Maximum number of pages:" + maxPages);
 
 /*Behind a firewall set your proxy and port here!
 */
@@ -222,13 +217,33 @@ public class WebCrawler {
         } catch (MalformedURLException e) { return; }
     }
 
-    static String getPage(URL url)
+    static void copyPage(InputStream from, OutputStream to) throws IOException {
+        byte[] buffer = new byte[4096];
+        while (true) {
+            int numBytes = from.read(buffer);
+            if (numBytes == -1) {
+                break;
+            }
+            to.write(buffer, 0, numBytes);
+        }
+    }
+
+    static void savePage( URL url, String pageName) throws Exception {
+        OutputStream out = new FileOutputStream(pageName + ".html");
+        URLConnection urlConnection = url.openConnection();
+        urlConnection.connect();
+        InputStream is = urlConnection.getInputStream();
+        copyPage(is, out);
+        is.close();
+        out.close();
+    }
+
+    static String getPage(URL url) throws Exception
 
     { try {
         // try opening the URL
         URLConnection urlConnection = url.openConnection();
         System.out.println("Downloading " + url.toString());
-
         urlConnection.setAllowUserInteraction(false);
 
         InputStream urlStream = url.openStream();
@@ -390,9 +405,7 @@ public class WebCrawler {
                         int ilinkEnd = lcPage.indexOf(">", ianchorEnd);
                         String uvWords = findFiveWords(index - 1, ilinkEnd + 1, lcPage);
                         String mAnchor = page.substring(iEnd + 2, ianchorEnd);
-                        if (mAnchor.equals("dolphins")) {
-                            System.out.println("");
-                        }
+                        pageName = mAnchor;
                         String newUrlString = page.substring(iURL,iEnd);
                         seenUrls.put(url ,new Integer(1));
                             addNewurl(url, newUrlString, query, uvWords, mAnchor, order);
@@ -404,7 +417,7 @@ public class WebCrawler {
         }
     }
 
-    static void run(String[] args){
+    static void run(String[] args) throws Exception{
         parsingArgs(args);
         initialize();
         for (int i = 0; i < fileLimit; i++) {
@@ -415,6 +428,7 @@ public class WebCrawler {
                     String page = getPage(url);
                     if (DEBUG) System.out.println(page);
                     if (page.length() != 0) processPage(url, page, argsMap.get("-q"));
+                    savePage(url, pageName);
                     if (newUrls.isEmpty()) break;
                 }
             } else {
@@ -423,7 +437,7 @@ public class WebCrawler {
         }
         System.out.println("Search complete.");
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws  Exception{
 //        WebCrawler webCrawler = new WebCrawler();
 //        webCrawler.run(args);
         run(args);
