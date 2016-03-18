@@ -6,16 +6,13 @@ public class URLInfo {
     URL url;
     int order;
     int linkScore;
+    String pageName;
 
-//    public void setUrl(String urlString) {
-//        try {
-//            this.url = new URL(urlString);
-//        }
-//        catch (MalformedURLException e) {
-//            System.out.println("Invalid starting URL " + urlString);
-//            return;
-//        }
-//    }
+
+    public String getPageName () {
+        return this.pageName;
+    }
+
     public void setLinkScore(int score) {
         this.linkScore = score;
     }
@@ -37,10 +34,11 @@ public class URLInfo {
         return this.linkScore;
     }
 
-    public URLInfo(URL url, int linkScore, int order) {
+    public URLInfo(URL url, int linkScore, int order, String pageName) {
         this.url = url;
         this.linkScore = linkScore;
         this.order = order;
+        this.pageName = pageName + ".html";
     }
 
     public int getOrder() {

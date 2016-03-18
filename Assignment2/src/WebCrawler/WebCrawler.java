@@ -15,7 +15,6 @@ public class WebCrawler {
     public static final int fileLimit = 20000;
     public static final Map<String, List<String>> argsMap = new HashMap<>();
     public static String plainContent;
-    public static String pageName = "";
 
     static void parsingArgs (String[] args) {
         int argsNumber = args.length;
@@ -64,7 +63,8 @@ public class WebCrawler {
         seenUrls.put(url,new Integer(1));
         int linkScore = 0;
         int order = 0;
-        URLInfo urlInfo = new URLInfo(url, linkScore, order);
+        String pageName = "source";
+        URLInfo urlInfo = new URLInfo(url, linkScore, order, pageName);
         newUrls.add(urlInfo);
         System.out.println("Starting search: Initial URL " + url.toString());
 
@@ -197,7 +197,7 @@ public class WebCrawler {
         if (DEBUG) System.out.println("URL String " + newUrlString);
         try { url = new URL(oldURL,newUrlString);
             int linkScore = calcScore(uvWords, newUrlString, query, mAnchor);
-            URLInfo urlInfo = new URLInfo(url, linkScore, order);
+            URLInfo urlInfo = new URLInfo(url, linkScore, order, mAnchor);
             if (!seenUrls.containsKey(url)) {
                 if (!duplicateNewUrl(url.toString())) {
                     String filename =  url.getFile();
@@ -229,7 +229,7 @@ public class WebCrawler {
     }
 
     static void savePage( URL url, String pageName) throws Exception {
-        OutputStream out = new FileOutputStream(pageName + ".html");
+        OutputStream out = new FileOutputStream(pageName);
         URLConnection urlConnection = url.openConnection();
         urlConnection.connect();
         InputStream is = urlConnection.getInputStream();
@@ -404,8 +404,7 @@ public class WebCrawler {
                         int ianchorEnd = lcPage.indexOf("<", iEnd);
                         int ilinkEnd = lcPage.indexOf(">", ianchorEnd);
                         String uvWords = findFiveWords(index - 1, ilinkEnd + 1, lcPage);
-                        String mAnchor = page.substring(iEnd + 2, ianchorEnd);
-                        pageName = mAnchor;
+                        String mAnchor = page.substring(iEnd + 2, ianchorEnd).replaceAll("[^a-zA-Z ]", "");
                         String newUrlString = page.substring(iURL,iEnd);
                         seenUrls.put(url ,new Integer(1));
                             addNewurl(url, newUrlString, query, uvWords, mAnchor, order);
@@ -422,13 +421,14 @@ public class WebCrawler {
         initialize();
         for (int i = 0; i < fileLimit; i++) {
             if (seenUrls.size() < maxPages) {
-                URL url = newUrls.poll().getUrl();
+                URLInfo urlInfo = newUrls.poll();
+                URL url = urlInfo.getUrl();
                 if (DEBUG) System.out.println("Searching " + url.toString());
                 if (robotSafe(url)) {
                     String page = getPage(url);
                     if (DEBUG) System.out.println(page);
                     if (page.length() != 0) processPage(url, page, argsMap.get("-q"));
-                    savePage(url, pageName);
+                    savePage(url, urlInfo.getPageName());
                     if (newUrls.isEmpty()) break;
                 }
             } else {
