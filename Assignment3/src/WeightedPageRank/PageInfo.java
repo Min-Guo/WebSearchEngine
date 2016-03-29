@@ -2,19 +2,20 @@ package WeightedPageRank;
 
 
 public class PageInfo {
-    int wordCount;
     String pageName;
-    Long baseScore;
-    String content;
+    double baseScore;
 
 
-    public PageInfo(String name, int wordCount, String content) {
+    public PageInfo(String name, double baseScore) {
         this.pageName = name;
-        this.wordCount = wordCount;
-        this.content = content;
+        this.baseScore = baseScore;
     }
 
-    public void setBaseScore(Long baseScore) {
+    public double getBaseScore() {
+        return baseScore;
+    }
+
+    public void setNomalizedBaseScore(double baseScore) {
         this.baseScore = baseScore;
     }
 
