@@ -10,6 +10,9 @@ import org.jsoup.select.Elements;
 
 public class PageRank {
     static List<PageInfo> pageInfos = new ArrayList<>();
+    static int pageCount;
+    static double[][] scoreMatrix;
+    static Map<String, Integer> pageNumberNameMap = new HashMap<>();
 
     static String getExtension(String fileName) {
         String extension = "";
@@ -76,19 +79,23 @@ public class PageRank {
         File folder = new File(folderPath);
         File[] listOfFiles = folder.listFiles();
         double totalBaseScore = 0;
+        int number = 0;
 
         for (File file: listOfFiles) {
             double unNomalizedbaseScore;
             Map<String, Double> outLinksScore;
             if (file.isFile() && (getExtension(file.getName()).equals("html"))) {
+                pageCount++;
                 Document doc = Jsoup.parse(file, null);
                 outLinksScore = calcOutLinkScore(doc);
                 String text = doc.body().text();
                 String[] textSplit = text.split("\\s+");
                 unNomalizedbaseScore = Math.log(textSplit.length) / Math.log(2);
                 totalBaseScore += unNomalizedbaseScore;
-                PageInfo pageInfo = new PageInfo(file.getName(), unNomalizedbaseScore, outLinksScore);
+                PageInfo pageInfo = new PageInfo(number, file.getName(), unNomalizedbaseScore, outLinksScore);
+                pageNumberNameMap.put(file.getName(), number);
                 pageInfos.add(pageInfo);
+                number++;
             }
         }
 
@@ -97,7 +104,28 @@ public class PageRank {
         }
     }
 
+    static void setUpScoreMatrix() {
+        scoreMatrix = new double[pageCount][pageCount];
+
+        for (PageInfo pageInfo:pageInfos) {
+            int fromPage = pageInfo.getPageNumber();
+            if (pageInfo.getOutLinkScore().isEmpty()) {
+                for (int i = 0; i < pageCount; i++) {
+                    scoreMatrix[i][pageInfo.getPageNumber()] = 1.0/pageCount;
+                }
+            } else {
+                Map<String, Double> outLinks = pageInfo.getOutLinkScore();
+                for (Map.Entry<String, Double> entry : outLinks.entrySet()) {
+                    String name = entry.getKey();
+                    int toPage = pageNumberNameMap.get(name);
+                    scoreMatrix[toPage][fromPage] = entry.getValue();
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) throws IOException{
         readPages(args[0]);
+        setUpScoreMatrix();
     }
 }
