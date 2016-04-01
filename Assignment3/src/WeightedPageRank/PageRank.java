@@ -13,6 +13,7 @@ public class PageRank {
     static int pageCount;
     static double[][] scoreMatrix;
     static Map<String, Integer> pageNumberNameMap = new HashMap<>();
+    static Map<String, Double> updatePageScore = new HashMap<>();
 
     static String getExtension(String fileName) {
         String extension = "";
@@ -100,7 +101,9 @@ public class PageRank {
         }
 
         for (PageInfo pageInfo:pageInfos) {
-            pageInfo.setNomalizedBaseScore(calcBaseScore(pageInfo.getBaseScore(), totalBaseScore));
+            double nomalizedScore = calcBaseScore(pageInfo.getBaseScore(), totalBaseScore);
+            pageInfo.setNomalizedBaseScore(nomalizedScore);
+            pageInfo.setScore(nomalizedScore);
         }
     }
 
@@ -124,8 +127,46 @@ public class PageRank {
         }
     }
 
+    static double calcPageNewScore(PageInfo pageInfo, double fParameter) {
+        double qScore = 0.0;
+        double pBase = pageInfo.getBaseScore();
+//        Map<String, Double> outLinks = pageInfo.getOutLinkScore();
+//        for (Map.Entry<String, Double> entry: outLinks.entrySet()) {
+            for (PageInfo page: pageInfos) {
+                qScore += scoreMatrix[pageInfo.getPageNumber()][pageNumberNameMap.get(page.getPageName())] * page.getScore();
+            }
+//        }
+        return (1 - fParameter)*(pBase) + fParameter*qScore;
+    }
+
+    static void calcPageRank(String fParameter) {
+        boolean changed = false;
+        double epsilon = 0.01/pageCount;
+        do {
+            for(PageInfo pageInfo: pageInfos) {
+                double newScore;
+                double oldScore = pageInfo.score;
+                newScore = calcPageNewScore(pageInfo, Double.valueOf(fParameter));
+                if (Math.abs(newScore - oldScore) > epsilon) {
+                    changed = true;
+                    updatePageScore.put(pageInfo.getPageName(), newScore);
+                } else {
+                    changed = false;
+                }
+            }
+
+            for (PageInfo pageInfo: pageInfos) {
+                pageInfo.setScore(updatePageScore.get(pageInfo.getPageName()));
+            }
+
+        } while (changed == true);
+
+        System.out.println("");
+    }
+
     public static void main(String[] args) throws IOException{
         readPages(args[0]);
         setUpScoreMatrix();
+        calcPageRank(args[1]);
     }
 }

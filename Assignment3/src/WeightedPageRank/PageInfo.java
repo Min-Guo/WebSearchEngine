@@ -7,6 +7,7 @@ public class PageInfo {
     int pageNumber;
     String pageName;
     double baseScore;
+    double score;
     Map<String, Double> outLinkScore = new HashMap<>();
 
 
@@ -16,6 +17,8 @@ public class PageInfo {
         this.baseScore = baseScore;
         this.outLinkScore = outLinkScore;
     }
+
+    public String getPageName() {return pageName;}
 
     public int getPageNumber() {return pageNumber;}
 
@@ -31,5 +34,11 @@ public class PageInfo {
         return outLinkScore;
     }
 
+    public void setScore (double score) {
+        this.score = score;
+    }
 
+    public double getScore() {
+        return score;
+    }
 }
