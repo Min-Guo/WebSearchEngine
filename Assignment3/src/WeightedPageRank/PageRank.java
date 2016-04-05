@@ -134,8 +134,12 @@ public class PageRank {
 //        for (Map.Entry<String, Double> entry: outLinks.entrySet()) {
             for (PageInfo page: pageInfos) {
                 qScore += scoreMatrix[pageInfo.getPageNumber()][pageNumberNameMap.get(page.getPageName())] * page.getScore();
+                System.out.println(scoreMatrix[pageInfo.getPageNumber()][pageNumberNameMap.get(page.getPageName())] + "*" + page.getScore());
             }
 //        }
+
+        System.out.println((1 - fParameter)*(pBase) + fParameter*qScore);
+        System.out.println("\n");
         return (1 - fParameter)*(pBase) + fParameter*qScore;
     }
 
@@ -158,7 +162,10 @@ public class PageRank {
             for (PageInfo pageInfo: pageInfos) {
                 pageInfo.setScore(updatePageScore.get(pageInfo.getPageName()));
             }
-
+            for (PageInfo pageInfo:pageInfos) {
+                System.out.println(pageInfo.getScore());
+            }
+            System.out.println("");
         } while (changed == true);
 
         System.out.println("");
@@ -167,6 +174,9 @@ public class PageRank {
     public static void main(String[] args) throws IOException{
         readPages(args[0]);
         setUpScoreMatrix();
+//        for (int i = 0; i < scoreMatrix.length;i++) {
+//            System.out.println(Arrays.toString(scoreMatrix[i]));
+//        }
         calcPageRank(args[1]);
     }
 }
