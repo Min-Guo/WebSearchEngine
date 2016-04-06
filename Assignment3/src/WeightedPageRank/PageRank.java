@@ -1,12 +1,13 @@
 package WeightedPageRank;
 
-
 import java.io.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import java.util.*;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import java.util.Collections;
+import java.text.DecimalFormat;
 
 public class PageRank {
     static List<PageInfo> pageInfos = new ArrayList<>();
@@ -130,23 +131,17 @@ public class PageRank {
     static double calcPageNewScore(PageInfo pageInfo, double fParameter) {
         double qScore = 0.0;
         double pBase = pageInfo.getBaseScore();
-//        Map<String, Double> outLinks = pageInfo.getOutLinkScore();
-//        for (Map.Entry<String, Double> entry: outLinks.entrySet()) {
             for (PageInfo page: pageInfos) {
                 qScore += scoreMatrix[pageInfo.getPageNumber()][pageNumberNameMap.get(page.getPageName())] * page.getScore();
-                System.out.println(scoreMatrix[pageInfo.getPageNumber()][pageNumberNameMap.get(page.getPageName())] + "*" + page.getScore());
             }
-//        }
-
-        System.out.println((1 - fParameter)*(pBase) + fParameter*qScore);
-        System.out.println("\n");
         return (1 - fParameter)*(pBase) + fParameter*qScore;
     }
 
     static void calcPageRank(String fParameter) {
-        boolean changed = false;
+        boolean changed;
         double epsilon = 0.01/pageCount;
         do {
+            changed = false;
             for(PageInfo pageInfo: pageInfos) {
                 double newScore;
                 double oldScore = pageInfo.score;
@@ -154,29 +149,34 @@ public class PageRank {
                 if (Math.abs(newScore - oldScore) > epsilon) {
                     changed = true;
                     updatePageScore.put(pageInfo.getPageName(), newScore);
-                } else {
-                    changed = false;
                 }
             }
 
             for (PageInfo pageInfo: pageInfos) {
                 pageInfo.setScore(updatePageScore.get(pageInfo.getPageName()));
             }
-            for (PageInfo pageInfo:pageInfos) {
-                System.out.println(pageInfo.getScore());
-            }
-            System.out.println("");
-        } while (changed == true);
 
-        System.out.println("");
+        } while (changed == true);
+    }
+
+    static void printResult() {
+        Collections.sort(pageInfos, new Comparator<PageInfo>() {
+        @Override
+            public int compare(PageInfo p1, PageInfo p2) {
+                return Double.compare(p2.getScore(), p1.getScore());
+            }
+        });
+
+        DecimalFormat numberFormat = new DecimalFormat("#.####");
+        for (PageInfo pageInfo: pageInfos) {
+            System.out.println(pageInfo.getPageName().replace(".html", "") + " " + numberFormat.format(pageInfo.getScore()));
+        }
     }
 
     public static void main(String[] args) throws IOException{
         readPages(args[0]);
         setUpScoreMatrix();
-//        for (int i = 0; i < scoreMatrix.length;i++) {
-//            System.out.println(Arrays.toString(scoreMatrix[i]));
-//        }
         calcPageRank(args[1]);
+        printResult();
     }
 }
