@@ -1,5 +1,6 @@
 package WeightedPageRank;
 
+
 import java.io.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -115,7 +116,11 @@ public class PageRank {
             int fromPage = pageInfo.getPageNumber();
             if (pageInfo.getOutLinkScore().isEmpty()) {
                 for (int i = 0; i < pageCount; i++) {
-                    scoreMatrix[i][pageInfo.getPageNumber()] = 1.0/pageCount;
+                    if (i == pageInfo.getPageNumber()) {
+                        scoreMatrix[i][i] = 0;
+                    } else {
+                        scoreMatrix[i][pageInfo.getPageNumber()] = 1.0 / (pageCount - 1);
+                    }
                 }
             } else {
                 Map<String, Double> outLinks = pageInfo.getOutLinkScore();
