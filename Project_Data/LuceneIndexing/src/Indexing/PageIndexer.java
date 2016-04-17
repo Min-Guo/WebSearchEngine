@@ -112,7 +112,6 @@ public class PageIndexer implements Runnable {
             System.out.println("Document directory '" +docDir.toAbsolutePath()+ "' does not exist or is not readable, please check the path");
             System.exit(1);
         }
-        System.out.println("Thread" + threadNumber + " " + dirPath);
         Date start = new Date();
         try {
             System.out.println("Indexing to directory '" + indexPath + "'...");
