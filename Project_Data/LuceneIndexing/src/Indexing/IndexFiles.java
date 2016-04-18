@@ -38,7 +38,6 @@ public class IndexFiles {
 
             }
         }
-
         PageIndexer.closeWriter();
     }
 }

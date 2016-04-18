@@ -57,7 +57,12 @@ public class PageIndexer implements Runnable {
         }
     }
 
-    private static String getExtension (Path file) {
+    /**
+     * get file extension
+     * @param file
+     * @return
+     */
+    static String getExtension (Path file) {
         String extension = "";
         String fileName = file.toString();
         int i = fileName.lastIndexOf('.');
@@ -70,10 +75,18 @@ public class PageIndexer implements Runnable {
     /** Indexes a single document */
     private void indexDoc(Path file, long lastModified) throws IOException {
         String fileExtension = getExtension(file);
+
+        // Only index html or htm files. Sometimes system will generate some files we don't want to index.
         if (fileExtension.equals("html") || fileExtension.equals("htm")) {
             try (InputStream fileStream = Files.newInputStream(file)) {
-                ParsePage parsePage = new ParsePage();
-                String[] parsedInfo = parsePage.getInfos(file.toString());
+                //Indexing specific pages
+//                ParsePage parsePage = new ParsePage();
+//                String[] parsedInfo = parsePage.getInfos(file.toString());
+//                Document doc = new Document();
+//
+                //Indexing html file using JTidy package.
+                JTidyParser jTidyParser = new JTidyParser();
+                String[] parsedInfo = jTidyParser.parser(file.toString());
                 Document doc = new Document();
                 if (parsedInfo[0] == "") {
                     if (parsedInfo[2] != "") {
@@ -134,6 +147,7 @@ public class PageIndexer implements Runnable {
                     "\n with message: " + e.getMessage());
         }
     }
+
 
     @Override
     public void run(){
