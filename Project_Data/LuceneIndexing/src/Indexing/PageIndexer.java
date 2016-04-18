@@ -73,7 +73,7 @@ public class PageIndexer implements Runnable {
         if (fileExtension.equals("html") || fileExtension.equals("htm")) {
             try (InputStream fileStream = Files.newInputStream(file)) {
                 ParsePage parsePage = new ParsePage();
-                String[] parsedInfo = parsePage.parser(file.toString());
+                String[] parsedInfo = parsePage.getInfos(file.toString());
                 Document doc = new Document();
                 if (parsedInfo[0] == "") {
                     if (parsedInfo[2] != "") {
