@@ -19,32 +19,41 @@ public class PageIndexer implements Runnable {
     private String dirPath;
     private String indexPath;
     private int threadNumber;
-//    private IndexWriter writer;
-//    private IndexWriterConfig iwc;
+    private static IndexWriter writer;
+
+
+    public static void createWriter(String indexPath) throws IOException {
+        Directory dir = FSDirectory.open(Paths.get(indexPath));
+        Analyzer analyzer = new StandardAnalyzer();
+        IndexWriterConfig iwc = new IndexWriterConfig(analyzer);
+        iwc.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
+        writer = new IndexWriter(dir, iwc);
+    }
+
+    public static void closeWriter() throws IOException{
+        writer.close();
+    }
 
     public PageIndexer(String dirPath, String indexPath, int threadNumber){
         this.dirPath = dirPath;
-//        this.writer = writer;
         this.indexPath = indexPath;
-//        this.iwc = iwc;
         this.threadNumber = threadNumber;
     }
 
-    private void indexDocs(final IndexWriter writer, Path path) throws IOException {
+    private void indexDocs(Path path) throws IOException {
         if (Files.isDirectory(path)) {
             Files.walkFileTree(path, new SimpleFileVisitor<Path>() {
                 @Override
                 public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
                     try {
-                        indexDoc(writer, file, attrs.lastModifiedTime().toMillis());
+                        indexDoc( file, attrs.lastModifiedTime().toMillis());
                     } catch (IOException ignore) {
-                        // don't index files that can't be read.
                     }
                     return FileVisitResult.CONTINUE;
                 }
             });
         } else {
-            indexDoc(writer, path, Files.getLastModifiedTime(path).toMillis());
+            indexDoc(path, Files.getLastModifiedTime(path).toMillis());
         }
     }
 
@@ -59,12 +68,12 @@ public class PageIndexer implements Runnable {
     }
 
     /** Indexes a single document */
-    private void indexDoc(final IndexWriter writer, Path file, long lastModified) throws IOException {
+    private void indexDoc(Path file, long lastModified) throws IOException {
         String fileExtension = getExtension(file);
         if (fileExtension.equals("html") || fileExtension.equals("htm")) {
             try (InputStream fileStream = Files.newInputStream(file)) {
-                JTidyParser jtidyParser = new JTidyParser();
-                String[] parsedInfo = jtidyParser.parser(file.toString());
+                ParsePage parsePage = new ParsePage();
+                String[] parsedInfo = parsePage.parser(file.toString());
                 Document doc = new Document();
                 if (parsedInfo[0] == "") {
                     if (parsedInfo[2] != "") {
@@ -81,7 +90,7 @@ public class PageIndexer implements Runnable {
                 doc.add(new LongField("modified", lastModified, Field.Store.NO));
                 InputStream stream = new ByteArrayInputStream(parsedInfo[1].getBytes(StandardCharsets.UTF_8));
                 doc.add(new TextField("contents", new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8))));
-
+                System.out.println("thread" + threadNumber + " " + file.toString());
                 if (writer.getConfig().getOpenMode() == IndexWriterConfig.OpenMode.CREATE) {
                     System.out.println("adding " + file);
                     writer.addDocument(doc);
@@ -100,7 +109,6 @@ public class PageIndexer implements Runnable {
                 + " [-index INDEX_PATH] [-docs DOCS_PATH] [-update]\n\n"
                 + "This indexes the documents in DOCS_PATH, creating a Lucene index"
                 + "in INDEX_PATH that can be searched with SearchFiles";
-        boolean create = true;
 
         if (dirPath == null) {
             System.err.println("Usage: " + usage);
@@ -115,24 +123,13 @@ public class PageIndexer implements Runnable {
         Date start = new Date();
         try {
             System.out.println("Indexing to directory '" + indexPath + "'...");
-
-            Directory dir = FSDirectory.open(Paths.get(indexPath));
-            Analyzer analyzer = new StandardAnalyzer();
-            IndexWriterConfig iwc = new IndexWriterConfig(analyzer);
-
-            if (create) {
-                iwc.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
-            } else {
-                iwc.setOpenMode(IndexWriterConfig.OpenMode.CREATE_OR_APPEND);
-            }
-            IndexWriter writer = new IndexWriter(dir, iwc);
-            indexDocs(writer, docDir);
-            writer.close();
-
+            indexDocs(docDir);
             Date end = new Date();
             System.out.println(end.getTime() - start.getTime() + " total milliseconds");
 
+
         } catch (IOException e) {
+            System.out.println("thread " + threadNumber);
             System.out.println(" caught a " + e.getClass() +
                     "\n with message: " + e.getMessage());
         }

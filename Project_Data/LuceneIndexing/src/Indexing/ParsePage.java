@@ -11,7 +11,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class JTidyParser {
+public class ParsePage {
     static String[] docInfo = new String[5];
 
     /*
@@ -147,7 +147,7 @@ public class JTidyParser {
     }
 
     public String[] parser(String path) throws IOException{
-        JTidyParser handler = new JTidyParser();
+        ParsePage handler = new ParsePage();
         return handler.getDocInfo(
                 new FileInputStream(new File(path)));
     }
