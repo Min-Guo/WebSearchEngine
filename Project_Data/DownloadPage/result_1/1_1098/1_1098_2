@@ -1,0 +1,34 @@
+#ThisURL#
+https://golang.org/help/
+#SubURL#
+https://golang.org/LICENSE
+https://golang.org/doc/tos.html
+https://twitter.com/golang
+https://plus.google.com/communities/114112804251407510571
+http://www.google.com/intl/en/policies/privacy/
+https://golang.org/doc/faq
+https://golang.org/wiki/GoUserGroups
+https://golang.org/wiki
+https://groups.google.com/group/golang-nuts
+http://play.golang.org/
+https://golang.org/pkg/
+https://groups.google.com/group/golang-announce
+https://golang.org/help/#
+https://golang.org/doc/
+https://golang.org/help/
+https://golang.org/wiki
+https://blog.golang.org
+https://developers.google.com/site-policies#restrictions
+https://forum.golangbridge.org/
+https://reddit.com/r/golang
+https://blog.gopheracademy.com/gophers-slack-community/
+#Title#
+Help - The Go Programming Language
+#Content#
+... The Go Programming Language Go ▽ Documents Packages The Project Help Blog Play package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Hello, 世界")
+} Run Format Share Help Get help Go Nuts Mailing List Search the golang-nuts archives and consult the FAQ and wiki before posting. Go Forum The Go Forum is an alternate discussion forum for Go programmers. Gopher Slack Get live support from the official Go slack channel. Go IRC Channel Get live support at #go-nuts on irc.freenode.net, the official Go IRC channel. Frequently Asked Questions (FAQ) Answers to common questions about Go. Stay informed Go Announcements Mailing List Subscribe to golang-announce for important announcements, such as the availability of new Go releases. Go Blog The Go project's official blog. @golang at Twitter The Go project's official Twitter account. Go+ community A Google+ community for Go enthusiasts. golang sub-Reddit The golang sub-Reddit is a place for Go news and discussion. Community resources Go User Groups Each month in places around the world, groups of Go programmers ("gophers") meet to talk about Go. Find a chapter near you. Go Playground A place to write, run, and share Go code. Go Wiki A wiki maintained by the Go community. Code of Conduct Guidelines for participating in Go community spaces and a reporting process for handling issues. Build version go1.6.1. Except as noted, the content of this page is licensed under the Creative Commons Attribution 3.0 License, and code is licensed under a BSD license. Terms of Service | Privacy Policy

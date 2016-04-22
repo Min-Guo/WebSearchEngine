@@ -1,0 +1,188 @@
+#ThisURL#
+http://vizier.u-strasbg.fr/viz-bin/Cat?J/A%2bA/455/1165
+#SubURL#
+http://vizier.u-strasbg.fr/viz-bin/ReadMe2f?-d&/ftp/cats/J/A+A/455/1165
+http://vizier.u-strasbg.fr/cgi-bin/Unit?arcsec
+http://vizier.u-strasbg.fr/cgi-bin/Unit?arcmin
+http://vizier.u-strasbg.fr/cgi-bin/Unit?uJy
+http://cds.u-strasbg.fr/cgi-bin/Sesame
+http://vizier.u-strasbg.fr/viz-bin/VizieR?-source=V/106
+http://vizier.u-strasbg.fr/viz-bin/VizieR?-source=J%2FA%2BA%2F455%2F1165
+http://vizier.u-strasbg.fr/viz-bin/?categ=*&menu=on
+mailto:cds-question@unistra.fr?Subject=Catalogue%20service
+http://cdsbib.u-strasbg.fr/cgi-bin/cdsbib
+http://cds.u-strasbg.fr/doc/catstd.htx
+http://cdsarc.u-strasbg.fr/viz-bin/Cat
+http://cds.u-strasbg.fr/cgi-bin/Dic-Simbad
+http://vizier.u-strasbg.fr/viz-bin/Cat?cat=J%2FA%2BA%2F455%2F1165&target=http&
+http://cdsbib.u-strasbg.fr/cgi-bin/cdsbib?2006A%26A...455.1165L
+http://vizier.u-strasbg.fr/cgi-bin/Unit?s
+http://vizier.u-strasbg.fr/viz-bin/Cat?J/A%2bA/455/1165#
+http://cdsweb.u-strasbg.fr/help
+http://aladin.u-strasbg.fr/aladin.gml
+mailto:cds-question@unistra.fr
+http://cdsxmatch.u-strasbg.fr
+http://cdsportal.u-strasbg.fr
+http://cds.u-strasbg.fr/
+http://tapvizier.u-strasbg.fr/adql/
+ftp://cdsarc.u-strasbg.fr/pub/cats/J/A%2BA/455/1165
+http://simbad.u-strasbg.fr/simbad
+http://cdsweb.u-strasbg.fr/SimPlay
+#Title#
+VizieR archives
+#Content#
+Portal Simbad VizieR Aladin X-Match Other Sesame name resolver Catalogue collection TAP VizieR Dictionary of nomenclature SimPlay Bibliography Contact us Help Access to Astronomical Catalogues ← Click to display the menu Search catalogue Show categories Find obsoleted in preparation catalog without ftp or VizieR link Summary ReadMe VizieR Browse FTP Tar 
+J/A+A/455/1165      Catalogue of Galactic high-mass X-ray binaries  (Liu+, 2006)
+ Catalogue of high-mass X-ray binaries in the Galaxy (4th edition).
+    Liu Q.Z., van Paradijs J., van den Heuvel E.P.J.
+   <Astron. Astrophys. 455, 1165 (2006)>
+   =2006A&A...455.1165L
+ ADC_Keywords: Binaries, X-ray ; Photometry, UBV ; Cross identifications
+
+Keywords: catalog - X-ray: binaries - stars, emission-line, Be -
+          stars: binaries: general
+
+Abstract:
+    We present a new edition of the catalogue of high-mass X-ray binaries
+    in the Galaxy. The catalogue contains source name(s), coordinates,
+    finding chart, X-ray luminosity, system parameters, and stellar
+    parameters of the components and other characteristic properties of
+    114 high-mass X-ray binaries, together with a comprehensive selection
+    of the relevant literature. The aim of this catalogue is to provide
+    the reader with some basic information on the X-ray sources and their
+    counterparts in other wavelength ranges (gamma-rays, UV, optical,
+    IR, radio). About 60% of the high-mass X-ray binary candidates are
+    known or suspected Be/X-ray binaries, while 32% are supergiant/X-ray
+    binaries. Some sources, however, are only tentatively identified as
+    high-mass X-ray binaries on the basis of their X-ray properties
+    similar to the known high-mass X-ray binaries. Further identification
+    in other wavelength bands is needed to finally determine the nature of
+    these sources. In cases where there is some doubt about the high-mass
+    nature of the X-ray binary this is mentioned. Literature published
+    before 1 October 2005 has, as far as possible, been taken into
+    account.
+
+File Summary:
+ 
+       FileName      Lrecl  Records   Explanations
+ 
+ReadMe            80        .   This file
+table1.dat       321      114   Catalog of 114 HMXB candidates in the Galaxy
+notes.dat         80      596   Individual notes
+refs.dat         250      861   References
+table1.tex       153     2263   LaTeX version of table1
+ 
+
+See also:
+          V/106 : Catalogue of X-ray binaries (Liu+ 2001)
+ J/A+A/442/1135 : High-mass X-ray binaries in the Magellanic Clouds (Liu+, 2005)
+
+
+Byte-by-byte Description of file: table1.dat
+ 
+   Bytes Format Units   Label     Explanations
+ 
+   1- 21  A21   ---     Name      Source Name
+  23- 29  A7    ---     Type      [CEPRTU ?,] X-ray type (1)
+  31- 32  I2    h       RAh       Right ascension (J2000)
+  34- 35  I2    min     RAm       Right ascension (J2000)
+  37- 41  F5.2  s       RAs       ? Right ascension (J2000)
+      43  A1    ---     DE-       Declination sign (J2000)
+  44- 45  I2    deg     DEd       Declination (J2000)
+  47- 48  I2    arcmin  DEm       Declination (J2000)
+  50- 53  F4.1  arcsec  DEs       ? Declination (J2000)
+  55- 60  F6.2  deg     GLON      ? Galactic longitude
+  62- 67  F6.2  deg     GLAT      ? Galactic latitude
+  69- 71  A3    ---     Pos       Type of observation from which the source
+                                    position has been derived (2)
+  73- 86  A14   ---     Opt       Optical counterpart
+      88  A1    ---     ---       ([)
+  89- 95  A7    ----    r_Opt     References for Optical counterpart
+                                   (finding charts)
+      96  A1    ---     ---       (])
+      98  A1    ---     l_Vmag    [≳] Limit flag on Vmag
+  99-103  F5.2  mag     Vmag      ? V magnitude
+     104  A1    ---     ---       [-]
+ 105-109  F5.2  mag     Vmagl     ? Lower magnitude when interval
+     110  A1    ---     u_Vmag    Uncertainty flag on Vmag
+ 112-116  F5.2  mag     B-V       ? B-V colour index
+     117  A1    ---     u_B-V     Uncertainty flag on B-V
+     118  A1    ---     ---       [-]
+ 119-122  F4.2  mag     B-Vl      ? Lower B-V colour index when interval
+ 124-128  F5.2  mag     U-B       ? U-B colour index
+ 130-133  F4.2  mag     E(B-V)    ? Interstellar reddening
+     134  A1    ---     ---       [-]
+ 135-137  F3.1  mag     E(B-V)2   ? Second value of E(B-V) when interval
+     138  A1    ---     u_E(B-V)  Uncertainty flag on E(B-V)
+     140  A1    ---     ---       ([)
+ 141-155  A15   ---     r_Vmag    Reference for UBV photometry
+     156  A1    ---     ---       (])
+ 158-163  F6.3  mag     Jmag      ? 2MASS J magnitude
+     165  A1    ---     l_Hmag    Limit flag on Hmag
+ 166-171  F6.3  mag     Hmag      ? 2MASS H magnitude
+     173  A1    ---     l_Kmag    Limit flag on Kmag
+ 174-179  F6.3  mag     Kmag      ? 2MASS K magnitude
+     181  A1    ---     l_FX      Limit flag on FX
+ 182-189  F8.2  uJy     FX        ? Flux value or interval
+     190  A1    ---     ---       [-]
+ 191-197  F7.1  uJy     FXu       ? Upper limit of X-ray flux when interval
+ 199-212  A14   ---     Range     Energy range for flux if not 2-20keV
+     214  A1    ---     ---       ([)
+ 215-225  A11   ---     r_FX      Reference for X-ray flux
+     226  A1    ---     ---       (])
+ 228-234  F7.3  d       Porb      ? Orbital period
+     235  A1    ---     u_Porb    [?] Uncertainty flag on Porb
+ 237-246  F10.4 s       Ppulse    ? Pulse period for X-ray pulsars
+     247  A1    ---     u_Ppulse  [?] Uncertainty flag on Ppulse
+     249  A1    ---     ---       ([)
+ 250-260  A11   ---     r_Porb    Reference for orbital and/or pulse period
+     261  A1    ---     ---       (])
+ 264-276  A13   ---     SpType    Spectral type
+ 279-299  A21   ---     Name2     Other name
+     300  A1    ---     u_Name2   [?] Uncertainty flag on Name2
+ 301-314  A14   ---     Name3     Other name
+ 316-321  A6    ---     Name4     Other name
+ 
+Note (1): Type as follows:
+      P = X-ray pulsars
+      T = transient X-ray source
+      E = eclipsing system
+      R = radio emitting HMXBs
+      C = cyclotron resonance scattering feature at X-ray spectrum
+      U = Ultra-soft X-ray spectrum. These sources include black-hole
+          candidates (BHC); some 'extreme ultra-soft' (EUS) source may be
+          white dwarf (WD) on whose surface steady nuclear burning takes place.
+Note (2): Type of observation as follows:
+      o = optical
+      x = X-ray
+      r = radio
+     IR = infrared
+ 
+
+Byte-by-byte Description of file: notes.dat
+ 
+   Bytes Format Units   Label     Explanations
+ 
+   1- 21  A21   ---     Name      Source Name
+  23- 80  A58   ---     Note      Text of the note (1)
+ 
+Note (1): Abbreviations used:
+       o, optical; x, X-ray; r, radio; IR, infrared.
+       A reference on the source position is given under 'pos.'.
+ 
+
+Byte-by-byte Description of file: refs.dat
+ 
+   Bytes Format Units   Label     Explanations
+ 
+   1-  3  I3    ---     Ref       Reference number
+   5- 23  A19   ---     BibCode   BibCode
+  25- 56  A32   ---     Aut       Author's name
+  57-250  A194  ---     Com       Comments
+ 
+
+Acknowledgements: Qingzhong Liu, <qzliu(at)pmo.ac.cn>
+
+ (End)                                        Patricia Vannier [CDS]  26-May-2006
+
+ The document above follows the rules of the Standard Description for Astronomical Catalogues.From this documentation it is possible to generate f77 program to load files into arrays or line by line catalogue service © UDS/CNRS Contact

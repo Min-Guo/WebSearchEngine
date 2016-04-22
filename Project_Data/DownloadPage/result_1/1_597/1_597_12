@@ -1,0 +1,37 @@
+#ThisURL#
+http://www.chromium.org/chromium-os
+#SubURL#
+https://chromium.googlesource.com/
+http://www.chromium.org/chromium-os/comp2_200x146.jpg?attredirects=0
+http://www.chromium.org/chromium-os/how-tos-and-troubleshooting/developer-faq
+http://www.chromium.org/chromium-projects
+http://www.chromium.org/chromium-os/ec-development
+http://www.chromium.org/Home
+http://developers.google.com/site-policies.html#restrictions
+http://www.chromium.org/chromium-os/chromium-os-faq
+http://www.chromium.org/chromium-os/minimuffin
+http://dev.chromium.org/developers/contributing-code
+http://www.youtube.com/watch?v=mTFfl7AjNfI
+http://www.chromium.org/chromium-os/getting-dev-hardware
+http://www.youtube.com/watch?v=KA5RQv9mBoY
+http://www.chromium.org/chromium-os/cable-and-adapter-tips-and-tricks
+http://www.chromium.org/system/app/pages/reportAbuse
+http://groups.google.com/a/chromium.org/group/chromium-os-discuss
+http://blog.chromium.org/
+http://dev.chromium.org/user-experience
+http://www.youtube.com/watch?v=0QRO3gKj3qw
+https://github.com/google/styleguide/#google-style-guides
+http://code.google.com/p/chromium/issues/list
+http://creativecommons.org/licenses/by/2.5/
+http://dev.chromium.org/for-testers/bug-reporting-guidelines
+https://www.google.com/a/UniversalLogin?service=jotspot&continue=http://sites.google.com/a/chromium.org/dev/chromium-os
+http://code.google.com/chrome/extensions/
+http://src.chromium.org/viewvc/chrome/trunk/src/LICENSE
+http://sites.google.com
+http://www.youtube.com/watch?v=A9WVmNfgjtQ
+http://googleblog.blogspot.com/2009/11/releasing-chromium-os-open-source.html
+https://developers.google.com/chrome/chrome-frame/
+#Title#
+Chromium OS - The Chromium Projects
+#Content#
+The Chromium Projects Search this site Home Chromium Chromium OS Quick links Report bugs Discuss Sitemap Other sites Chromium Blog Google Chrome Extensions Google Chrome Frame Except as otherwise noted, the content of this page is licensed under a Creative Commons Attribution 2.5 license, and examples are licensed under the BSD License. Chromium OS Chromium OS is an open-source project that aims to build an operating system that provides a fast, simple, and more secure computing experience for people who spend most of their time on the web. Here you can review the project's design docs, obtain the source code, and contribute. To learn more about the project goals, read the announcement blog post. Videos What is Google Chrome OS? Chromium OS Security Chromium OS & Open Source Chromium OS Fast Boot For contributors Getting involved Getting developer hardware Official Chrome OS Devices Process for contributing Tree sheriffs Useful developer related Chrome extensions 2014 Chrome OS Firmware Summit For UI designers User experience: Chromium/OS For developers Developing apps on your Chromium OS device Chromium OS Build For everyone Chromium OS FAQ Join the right discussion groups (if in doubt, go to chromium-os-discuss or use the IRC channel irc.freenode.net/#chromium-os-users) Report bugs or view existing bugs Source code First time?  Use the Chromium OS Quick Start Guide Read the Chromium OS Developer Guide to learn how to build the source Overview of the source Browse the source Coding Style Chromium OS Python Style Guide Chromium OS Shell Style Guide For other languages, follow the Google Style Guide For third-party code, follow the external project style guides Testing Licenses Developer docs Chromium OS Developer Guide High-Level Developer FAQ Firmware (Coreboot / U-Boot) Overview and Porting Guide Embedded Controller (EC) Development All How Tos and Troubleshooting Poking around Your Chrome OS Device Design docs Hardware Reference docs and schematics Software for the microcontroller on these USB Type-C example designs is in the EC source code USB Type-C debug dongle and sniffer for USB-PD communications USB Type-C to DisplayPort Adapter USB Type-C to HDMI Adapter 45W USB Type-C Charging Adapter Control Board Cable and Adapter Tips and Tricks USB Type-C functional testing board Sign in|Recent Site Activity|Report Abuse|Print Page|Powered By Google Sites

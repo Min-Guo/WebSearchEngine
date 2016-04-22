@@ -1,0 +1,32 @@
+#ThisURL#
+http://tapvizier.u-strasbg.fr/adql/
+#SubURL#
+http://cds.u-strasbg.fr/cgi-bin/Sesame?
+mailto:cds-question@unistra.fr?Subject=TAP%20VizieR
+http://cds.u-strasbg.fr/cgi-bin/Sesame
+http://tapvizier.u-strasbg.fr/adql/#unitChange
+http://cdsbib.u-strasbg.fr/cgi-bin/cdsbib
+http://cds.u-strasbg.fr/cgi-bin/Dic-Simbad
+http://tapvizier.u-strasbg.fr/adql/#skyArea
+http://tapvizier.u-strasbg.fr/adql/about.html
+http://tapvizier.u-strasbg.fr/adql/#
+http://tapvizier.u-strasbg.fr/adql/help.html
+http://tapvizier.u-strasbg.fr/adql/#tableColumns
+http://cdsweb.u-strasbg.fr/help
+http://www.ivoa.net/Documents/latest/ADQL.html
+http://aladin.u-strasbg.fr/aladin.gml
+mailto:cds-question@unistra.fr
+http://cdsxmatch.u-strasbg.fr
+http://cdsportal.u-strasbg.fr
+http://cds.u-strasbg.fr/
+http://tapvizier.u-strasbg.fr/adql/#joinTable
+http://tapvizier.u-strasbg.fr/adql/
+http://tapvizier.u-strasbg.fr/viz-bin/Cat
+http://simbad.u-strasbg.fr/simbad
+http://tapvizier.u-strasbg.fr/adql/#emptytab
+http://vizier.u-strasbg.fr/viz-bin/VizieR
+http://cdsweb.u-strasbg.fr/SimPlay
+#Title#
+TAP VizieR
+#Content#
+Portal Simbad VizieR Aladin X-Match Other Sesame name resolver Catalogue collection TAP VizieR Dictionary of nomenclature SimPlay Bibliography Contact us Help Tap VizieR http://vizier.u-strasbg.fr/viz-bin/VizieR Search by catalog, author's name, word(s) from title, position (resolved by Sesame), ... e.g : Veron, 2Mass, redshift , M31... Note : The vizieR capability takes advantage of METAdata This application requires Javascript to work and your browser does not support javascript. The TAPVizieR service provides VizieR tables using ADQL (a SQL extension in Astronomy).  Documentations →About TAP VizieR →ADQL documentation & examples ! Columns and constraints Sky area Join Unit change of coordinates * Modify the query with the upper tabs. © UDS/CNRS Contact

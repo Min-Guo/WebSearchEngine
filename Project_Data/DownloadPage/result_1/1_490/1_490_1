@@ -1,0 +1,693 @@
+#ThisURL#
+http://cdsarc.u-strasbg.fr/viz-bin/qcat?J/A+A/588/A103
+#SubURL#
+http://cdsarc.u-strasbg.fr/cgi-bin/Unit?arcsec
+http://vizier.u-strasbg.fr/viz-bin/VizieR?-source=J/A%2BA/316/147
+http://cdsarc.u-strasbg.fr/cgi-bin/Unit?mW/m2
+http://cds.u-strasbg.fr/cgi-bin/Sesame
+http://cdsarc.u-strasbg.fr/cgi-bin/Unit?ct
+http://cdsarc.u-strasbg.fr/viz-bin/ReadMe2f?-d&/ftp/cats/J/A+A/588/A103&-a
+http://vizier.u-strasbg.fr/viz-bin/VizieR?-source=V/106
+http://vizier.u-strasbg.fr/viz-bin/VizieR?-source=IX/10
+http://cdsbib.u-strasbg.fr/cgi-bin/cdsbib?2016A%26A...588A.103B
+http://cdsarc.u-strasbg.fr/cgi-bin/Unit?pix
+http://cdsarc.u-strasbg.fr/viz-bin/?categ=*&menu=on
+http://vizier.u-strasbg.fr/viz-bin/VizieR?-source=VII/258
+http://cdsarc.u-strasbg.fr/cgi-bin/Unit?arcmin%2b2
+http://cdsbib.u-strasbg.fr/cgi-bin/cdsbib
+http://vizier.u-strasbg.fr/viz-bin/VizieR?-source=J/A%2BA/480/611
+http://cdsarc.u-strasbg.fr/cgi-bin/Unit?s
+http://cdsarc.u-strasbg.fr/viz-bin/qcat?J/A+A/588/A103#
+ftp://cdsarc.u-strasbg.fr/pub/cats/J/A%2BA/588/A103
+http://vizier.u-strasbg.fr/viz-bin/VizieR?-source=IX/29
+http://vizier.u-strasbg.fr/viz-bin/VizieR?-source=IX/28
+http://aladin.u-strasbg.fr/aladin.gml
+http://vizier.u-strasbg.fr/viz-bin/VizieR?-source=J/A%2BA/455/1165
+http://vizier.u-strasbg.fr/viz-bin/VizieR?-source=IX/30
+http://www.atnf.csiro.au/people/pulsar/psrcat
+http://vizier.u-strasbg.fr/viz-bin/VizieR
+http://cdsweb.u-strasbg.fr/SimPlay
+mailto:cds-question@unistra.fr?Subject=Catalogue%20service
+http://www.sdss.org
+http://cds.u-strasbg.fr/doc/catstd.htx
+http://cds.u-strasbg.fr/cgi-bin/Dic-Simbad
+http://cdsweb.u-strasbg.fr/help
+mailto:cds-question@unistra.fr
+http://cdsxmatch.u-strasbg.fr
+http://cdsportal.u-strasbg.fr
+http://cds.u-strasbg.fr/
+http://tapvizier.u-strasbg.fr/adql/
+http://simbad.u-strasbg.fr/simbad
+#Title#
+VizieR archives
+#Content#
+Portal Simbad VizieR Aladin X-Match Other Sesame name resolver Catalogue collection TAP VizieR Dictionary of nomenclature SimPlay Bibliography Contact us Help Access to Astronomical Catalogues ← Click to display the menu Search catalogue Show categories Find obsoleted in preparation catalog without ftp or VizieR link Summary ReadMe VizieR Browse FTP Tar 
+J/A+A/588/A103 Second ROSAT all-sky survey (2RXS) source catalog (Boller+, 2016)
+ Second ROSAT all-sky survey (2RXS) source catalogue.
+    Boller T., Freyberg M.J., Truemper J., Haberl F., Voges W., Nandra K.
+    <Astron. Astrophys. 588, A103 (2016)>
+    =2016A&A...588A.103B        (SIMBAD/NED BibCode)
+ ADC_Keywords: X-ray sources ; Surveys
+
+Mission_Name: ROSAT
+
+Keywords: X-rays: catalogs
+
+
+Abstract:
+    We present the second ROSAT all-sky survey source catalogue, hereafter
+    referred to as the 2RXS catalogue. This is the second publicly
+    released ROSAT catalogue of point-like sources obtained from the ROSAT
+    all-sky survey (RASS) observations performed with the
+    position-sensitive proportional counter (PSPC) between June 1990 and
+    August 1991, and is an extended and revised version of the bright and
+    faint source catalogues.
+
+    We used the latest version of the RASS processing to produce
+    overlapping X-ray images of 6.4 by 6.4 degrees sky regions. To create
+    a source catalogue, a likelihood-based detection algorithm was applied
+    to these, which accounts for the variable point-spread function (PSF)
+    across the PSPC field of view. Improvements in the background
+    determination compared to 1RXS were also implemented. X-ray control
+    images showing the source and background extraction regions were
+    generated, which were visually inspected. Simulations were performed
+    to assess the spurious source content of the 2RXS catalogue. X-ray
+    spectra and light curves were extracted for the 2RXS sources, with
+    spectral and variability parameters derived from these products. We
+    obtained about 135,000 X-ray detections in the 0.1-2.4keV energy band
+    down to a likelihood threshold of 6.5, as adopted in the 1RXS faint
+    source catalogue. Our simulations show that the expected spurious
+    content of the catalogue is a strong function of detection likelihood,
+    and the full catalogue is expected to contain about 30 per cent
+    spurious detections. A more conservative likelihood threshold of 9, on
+    the other hand, yields about 71,000 detections with a 5 per cent
+    spurious fraction.
+
+    We recommend thresholds appropriate to the scientific application.
+    X-ray images and overlaid X-ray contour lines provide an additional
+    user product to evaluate the detections visually, and we performed our
+    own visual inspections to flag uncertain detections. Intra-day
+    variability in the X-ray light curves was quantified based on the
+    normalised excess variance and a maximum amplitude variability
+    analysis. X-ray spectral fits were performed using three basic models,
+    a power law, a thermal plasma emission model, and black-body emission.
+    Thirty-two large extended regions with diffuse emission and embedded
+    point sources were identified and excluded from the present analysis.
+
+    The 2RXS catalogue provides the deepest and cleanest X-ray all-sky
+    survey catalogue in advance of eROSITA.
+
+Description:
+    We have re-analysed the photon event files from the ROSAT all-sky
+    survey. The main goal was to create a catalogue of point-like sources,
+    which is referred to as the 2RXS source catalogue. We improved the
+    reliability of detections by an advanced detection algorithm and a
+    complete screening process. New data products were created to allow
+    timing and spectral analysis. Photon event files with corrected
+    astrometry and Moon rejection (RASS-3.1 processing) were made
+    available in FITS format. The 2RXS catalogue will serve as the basic
+    X-ray all-sky survey catalogue until eROSITA data become available.
+
+File Summary:
+ 
+       FileName      Lrecl  Records   Explanations
+ 
+ReadMe            80        .   This file
+cat2rxs.dat     2616   135118   Catalogue of 135118 2RXS ROSAT sources
+cat2rxs.fits    2880    75292   Fits version of the catalog
+ 
+
+See also:
+ IX/10   : ROSAT All-Sky Bright Source Catalogue (1RXS) (Voges+ 1999)
+ IX/29   : ROSAT All-Sky Survey Faint Source Catalog (Voges+ 2000)
+ IX/28   : ROSAT HRI Pointed Observations (1RXH) (ROSAT Team, 2000)
+ IX/30   : Second ROSAT PSPC Catalog (2RXP) (ROSAT, 2000)
+ IX/46   : XMM-Newton Serendipitous Source Catalogue 3XMM-DR5 (XMM-SSC, 2016)
+ IX/43   : 1SXPS Swift X-ray telescope point source catalogue (Evans+ 2014)
+ III/235 : Spectroscopically Identified White Dwarfs (McCook+, 2008)
+ VII/258 : Quasars and Active Galactic Nuclei (13th Ed.) (VV10) (Veron+ 2001)
+ I/259   : The Tycho-2 Catalogue (Hog+ 2000)
+ V/50    : Bright Star Catalogue, 5th Revised Ed. (Hoffleit+, 1991)
+ V/106   : Catalogue of X-ray binaries (HMXB) (Liu+ 2001)
+
+ J/A+A/455/1165 : Galactic high-mass X-ray binaries (LMXB) (Liu+ 2006)
+ J/A+A/480/611  : XMM-Newton Slew Survey catalogue, XMMSL1 (Saxton+, 2008)
+ J/A+A/403/247  : Variability in ROSAT All-Sky Survey (FUH) (Fuhrmeister+, 2003)
+ J/A+A/316/147  : Catalogue of ROSAT White Dwarfs (Fleming+ 1996)
+
+  http://www.atnf.csiro.au/people/pulsar/psrcat : ATNF Home page
+  http://www.sdss.org : SDSS Home page
+
+
+Byte-by-byte Description of file: cat2rxs.dat
+ 
+   Bytes Format Units       Label     Explanations
+ 
+   1-  4  A4    ---         ---       [2RXS]
+   6- 21  A16   ---         2RXS      IAU name JHHMMSS.s+DDMMSS (IAU_NAME) (1)
+  23- 28  I6    ---         Seq       ? Sky field number (SEQ_ID)
+  30- 32  I3    ---         IndDet    ? Source number in a certain sky field
+                                         (IND_DET)
+  34- 42  F9.2  ---         ExiML     Detection likelihood (EXI_ML)
+  44- 52  F9.2  ct          Cts       Background corrected source counts (CTS)
+  54- 60  F7.2  ct          e_Cts     Error of the source counts (CERR)
+  62- 69  F8.4  ct/s        CRate     Source count rate (RATE)
+  71- 77  F7.4  ct/s        e_CRate   Error of the count rate (ERATE)
+  79- 86  F8.2  s           ExpTime   Source exposure time (EXPOSURE)
+  88- 96  F9.5  deg         RAdeg     Right ascension (J2000) (RA_DEG)
+  98-106  F9.5  deg         DEdeg     Declination (J2000) (DEC_DEG)
+ 108-119  A12   ---         RAhms     Sexadecimal right ascension (J2000)
+                                         (RA_HMS)
+ 121-132  A12   ---         DEdms     Sexadecimal declination (J2000)
+                                         (DEC_DMS)
+ 134-142  F9.5  deg         GLON      Latitude in galactic coordinate  (LII)
+ 144-152  F9.5  deg         GLAT      Longitude in galactic coordinate (BII)
+ 154-162  F9.5  deg         Lambda    Latitude in ecliptic coordinate (LAMBDA)
+ 164-172  F9.5  deg         Beta      Longitude in ecliptic coordinate (BETA)
+ 174-182  F9.3  pix         Ext       Source extent in units of image pixels
+                                         (EXT)
+ 184-190  F7.3  pix         e_Ext     Error of the source extent (EXTERR)
+ 192-198  F7.2  ---         ExtML     Proability of the source extend (EXT_ML)
+ 200-205  F6.3  ---         HR1       ? Hardness ratio 1 value (HR_1) (2)
+ 207-214  F8.3  ---         e_HR1     ? Error of HR1 (HR1err)
+ 216-221  F6.3  ---         HR2       ? Hardness ratio 2 value (HR_2) (2)
+ 223-231  F9.3  ---         e_HR2     ? Error of HR2 (HR2err)
+     233  I1    ---         USKY      ? Unique flag (USKY) (3)
+     235  I1    ---         Masked    [1]? Extended emission regions
+                                         (0=yes 1=no) (Masked)
+     237  I1    ---         FAll      [0]? Detection flag of nearby sources
+                                          (FLAG_all) 0=best
+ 239-241  I3    ---         Sflag     ? S flag (0=good) (S_flag) (4)
+ 243-245  I3    ---         Index     ? Running number in catalogue (INDEX)
+ 247-255  F9.4  ---         AmpMax    ? Maximum amplitude variability
+                                           (AMPL_MAX)
+ 257-265  F9.5  ct/s        CM        ? Mean count rate value (CM)
+ 267-275  F9.5  ct/s        CD        ? Standard deviation of CM (CD)
+ 277-285  F9.2  ct          CTSlc     ? Number of counts calculated from the
+                                           light curve analysis (CTS_lc)
+ 287-295  F9.5  ct/s        Cmin      ? Minimum count rate (CMIN)
+ 297-305  F9.5  ct/s        Cmax      ? Maximum count rate (CMAX)
+ 307-315  F9.5  ct/s        e_Cmin    ? Error of CMIN (EMIN)
+ 317-325  F9.5  ct/s        e_Cmax    ? Error of CMAX (EMAX)
+ 327-335  F9.3  ---         Chi2lc    ? Chi2 value from the LC analysis
+                                           (CHI2_lc)
+ 337-348  E12.6 ---         ExcVar    ? Normalized excess variance
+                                           (EXCESS_VAR)
+ 350-361  E12.6 ---         e_ExcVar  ? One-sigma uncertainty of Exc_Var
+                                           (UNCERTAINTY)
+ 363-372  F10.6 ---         sigExc    ? Excess variance in units of sigma
+                                          (Sigma_Excess)
+ 374-382  F9.4  10+21cm-2   NHgal     ? Galactic neutral hydrogen density
+                                           (NH_gal)
+ 384-392  F9.4  10+21cm-2   NHfitp    ? Neutral hydrogen density of PL fits
+                                          (NHfitp)
+ 394-405  E12.6 10+21cm-2   e_NHfitp  ? Error of NHfitp (NHerrp)
+ 407-416  E10.5 ---         Normp     ? Normalization for PL fits (NORM_p)
+ 418-427  E10.5 ---         e_Normp   ? Error of NORM_p  (NORMerrp)
+ 429-435  F7.4  ---         Gammap    ? photon index (GAMMA_p)
+ 437-448  E12.6 ---         e_Gammap  ? Error of GAMMA_p (GAMMAerrp)
+ 450-458  F9.6  ct/s        CTRspep   ? Count rate obtained from the PL fit
+                                           (CTRspecp)
+ 460-469  E10.5 mW/m2       Fluxp     ? Absorption corrected flux of PL-fit
+                                           (FLUX_p)
+ 471-479  F9.4  ---         Chi2rspp  ? Reduced chi2 value for the PL-fits
+                                           (Chi2redspecp)
+ 481-489  F9.4  ---         Chi2spp   ? Chi2 value for the  power-law-fits
+                                           (Chi2specp)
+ 491-493  I3    ---         NDptp     ? Number of data points for the PL-fits
+                                           (NumDatapts_p)
+ 495-498  I4    ---         NDFp      ? Number of degrees of freedom (PL)
+                                           (NumDegfree_p)
+ 500-510  F11.6 10+21cm-2   NHfitm    ? Neutral hydrogen density (mekal fits)
+                                           (NHfitm)
+ 512-521  E10.5 10+21cm-2   e_NHfitm  ? Error of NHfitm (NHerrm)
+ 523-532  E10.5 ---         Normm     ? Normalization for the mekal fits
+                                           (NORM_m)
+ 534-543  E10.5 ---         e_Normm   ? Error of NORM_m (NORMerrm)
+ 545-553  F9.6  ---         Tempfitm  ? Temperature of the mekal fits
+                                           (Tempfitm)
+ 555-564  E10.5 ---       e_Tempfitm  ? Error of Tempfitm (Temperrm)
+ 566-574  F9.6  ct/s        CTRspm    ? Count rate obtained for the mekal fits
+                                           (CTRspecm)
+ 576-584  F9.6  mW/m2       Fluxm     ? Absorption corrected flux (mekal fits)
+                                           (FLUX_m)
+ 586-595  E10.5 ---         Chi2rspm  ? Reduced chi2 value for mekal fits
+                                           (Chi2redspecm)
+ 597-606  E10.5 ---         Chi2spm   ? Chi2 value for the mekal fits
+                                           (Chi2specm)
+ 608-610  I3    ---         NDptm     ? Number of data points (mekal fits)
+                                           (NumDatapts_m)
+ 612-615  I4    ---         NDFm      ? Number of degrees of freedom (mekal)
+                                           (NumDegfree_m)
+ 617-626  F10.5 10+21cm-2   NHfitb    ? Neutral hydrogen density (bbdy fits)
+                                           (NHfitb)
+ 628-637  E10.5 10+21cm-2   e_NHfitb  ? Error of NHfitb (NHerrb)
+ 639-648  E10.5 ---         Normb     ? Normalization for the black body fits
+                                           (NORM_b)
+ 650-659  E10.5 ---         e_Normb   ? Error of the normalization (bbdy fits)
+                                           (NORMerrb)
+ 661-670  F10.6 ---         Tempfitb  ? Temperature of the black body fits
+                                           (Tempfitb)
+ 672-681  E10.5 ---       e_Tempfitb  ? Error of Tempfitbbdy (Temperrb)
+ 683-691  F9.6  ct/s        CTRspb    ? Count rate for the black body fit
+                                           (CTRspecb)
+ 693-702  E10.5 mW/m2       Fluxb     ? Absorption corrected flux (black body)
+                                           (FLUX_b)
+ 704-713  F10.6 ---         Chi2rspb  ? Reduced chi2 value (black body)
+                                           (Chi2redspecb)
+ 715-724  E10.5 ---         Chi2spb   ? Chi2 value for the black body fits
+                                           (Chi2specb)
+ 726-728  I3    ---         NDptb     ? Number of data points (black body)
+                                           (NumDatapts_b)
+ 730-733  I4    ---         NDFb      ? Number of degrees of freedom (bbdy)
+                                           (NumDegfree_b)
+ 735-742  F8.4  pix         Xima      X image coordinate (45 arcsec)
+                                           in image pixel (X_IMA)
+ 744-751  F8.4  pix         Yima      Y image coordinate (45 arcsec)
+                                           in image pixel (Y_IMA)
+ 753-760  F8.6  pix         e_Xima    One-sigma error of X_IMA
+                                           in image pixel (XERR)
+ 762-769  F8.6  pix         e_Yima    One-sigma error of Y_IMA
+                                           in image pixel (YERR)
+ 771-781  F11.4 pix         Xsky      X sky coordinates (0.5 arcsec)
+                                           in sky pixel (X_SKY)
+ 783-793  F11.4 pix         Ysky      Y sky coordinates (0.5 arcsec)
+                                           in sky pixel (Y_SKY)
+ 795-797  I3    pix         CuRad     [600]? Source extraction radius
+                                           in sky pixels (CUT_RAD)
+ 799-801  F3.1  ---         FA        Analyzed fraction of cut radius (FA)
+ 803-806  I4    ---         TotNum    ? Total number of photons read from the
+                                         PET and analyzed by the maximum
+                                        likelihood  algorithm (TOTNUM)
+ 808-814  F7.4  pix-1       BGR       Background in source extraction region
+                                        in 1/pix_image (BGR)
+ 816-822  F7.4  ---         VigCor    Vignetting correction factor (VIG_COR)
+ 824-835  A12   ---         Rem       [source nrby?] on flags originating from
+                                         ML-detection (REMARKS)
+ 837-844  F8.2  ct          SB1       ? Counts in band A (SB1)
+ 846-853  F8.2  ct          SB2       ? Counts in band B (SB2)
+ 855-862  F8.2  ct          SB3       ? Counts in band C (SB3)
+ 864-871  F8.2  ct          SB4       ? Counts in band D (SB4)
+ 873-880  F8.2  ct          B1        ? Background band A with other catalogue
+                                           entries excised (B1)
+ 882-889  F8.2  ct          B2        ? Background band B with other catalogue
+                                           entries excised (B2)
+ 891-898  F8.2  ct          B3        ? Background band C with other catalogue
+                                           entries excised (B3)
+ 900-907  F8.2  ct          B4        ? Background band D with other catalogue
+                                           entries excised (B4)
+ 909-915  F7.3  arcmin+2    Bspa      ? Remaining bkg area in square arcmin
+ 917-924  F8.2  ct          S1        ? Source counts in band A
+                                           (SB1 - B1*sbspa/bspa) (S1)
+ 926-933  F8.2  ct          S2        ? Source counts in band B
+                                           (SB2 - B2*sbspa/bspa) (S2)
+ 935-942  F8.2  ct          S3        ? Source counts in band c
+                                           (SB3 - B3*sbspa/bspa) (S3)
+ 944-951  F8.2  ct          S4        ? Source counts in band D
+                                           (SB4 - B4*sbspa/bspa) (S4)
+ 953-954  I2    ---         mXMMSL1   ? Number of counterparts in the XMM Slew
+                                           Survey within the distance of 60"
+                                          (mult_xmmsl1)
+ 956-960  I5    ---         eXMMSL1   ? Source number of nearest counterpart
+                                            in the XMM Slew Survey (entr_xmmsl1)
+ 962-967  F6.1  arcsec      dXMMSL1   ?=0 Distance of nearest XMMSL1
+                                             counterpart (dist_xmmsl1)
+ 969-977  F9.5  deg         RA1deg    ?=0 XMMSL Right ascension (J2000)
+                                         (RA_xmmsl1)
+ 979-987  F9.5  deg         DE1deg    ?=0 XMMSL Declination (J2000)
+                                          (DEC_xmmsl1)
+ 989-994  A6    ---         ---       [XMMSL1]
+ 996-1011  A16   ---         XMMSL1    Source name in the XMM Slew Survey
+                                          for 9974 2RXS sources (SRCNAME_xmmsl1)
+ 1013-1022  F10.6 ct/s        CRB0      ? Broad Band Count rate (RATEB0xmmsl1)
+ 1024-1032  F9.6  ct/s        e_CRB0    ? Broad Band Count rate error
+                                           (RATEB0exmmsl1)
+ 1034-1043  F10.6 c/s         CRB5      ? Count rate, energy band 0.5-2keV
+                                           (RATEB5xmmsl1)
+ 1045-1053  F9.6  c/s         e_CRB5    ? Count rate error, 0.5-2keV
+                                           (RATEB5exmmsl1)
+ 1055-1057  I3    ---         m3XMM     ? Number of 3XMM counterparts within
+                                           the distance of 60" (mult_3xmm)
+ 1059-1064  I6    ---         e3XMM     ? Source number of nearest counterpart
+                                           in the 3XMM Catalogue (entr_3xmm)
+ 1066-1071  F6.1  arcsec      d3XMM     ?=0 Distance of nearest 3XMM counterpart
+                                         (dist_3xmm)
+ 1073-1081  F9.5  deg         RA2deg    ?=0 3XMM Right ascension (J2000)
+                                         (RA_3xmm)
+ 1083-1091  F9.5  deg         DE2deg    ?=0 3XMM Declination (J2000) (DEC_3xmm)
+ 1093-1096  A4    ---         ---       [3XMM]
+ 1098-1113  A16   ---         3XMM      Source name in the 3XMM Catalogue
+                                         for 6744 2RXS sources (SRCNAME_3xmm)
+ 1115-1126  E12.6 ct/s        CREP8     ? 3XMM Count rate (RATEEP83xmm)
+ 1128-1135  F8.6  ct/s        e_CREP8   ? 3XMM Count rate error (RATEEP8e3xmm)
+ 1137-1148  E12.6 mW/m2       FluxR     ? 3XMM Flux (FLUXR3xmm)
+ 1150-1161  E12.6 mW/m2       e_FluxR   ? 3XMM Flux erro (FLUXRerr_3xmm)
+ 1163-1165  I3    ---         m2RXP     ? Number of 2RXP counterparts within
+                                           the distance of 300" (mult_2rxp)
+ 1167-1171  I5    ---         e2RXP     ? Source number of nearest counterpart
+                                           in the 2RXP catalogue (entr_2rxp)
+ 1173-1178  F6.1  arcsec      d2RXP     ?=0 Distance of 2RXP nearest counterpart
+                                         (dist_2rxp)
+ 1180-1188  F9.5  deg         RA3deg    ?=0 2RXP Right ascension (J2000)
+                                         (RA_2rxp)
+ 1190-1198  F9.5  deg         DE3deg    ?=0 2RXP Declination (J2000)
+                                         (DEC_2rxp)
+ 1200-1215  A16   ---         2RXP      Source name in the 2RXP for
+                                         6744 sources (SRCNAME_2rxp)
+ 1217-1225  F9.6  ct/s        CR2RXP    ? 2RXP Count rate (CRATE_2rxp)
+ 1227-1234  F8.6  ct/s        e_CR2RXP  ? 2RXP Count rate error (CRATEerr2rxp)
+ 1236-1240  I5    s           ETim2RXP  ? 2RXP Source exposure time
+                                           (ExpTime_2rxp)
+ 1242-1256  A15   ---         ObsID     Field number of 2RXP counterpart
+                                         (ObsID_2rxp)
+    1258  I1    ---         m1RXS     ? Number of 1RXS counterparts within a
+                                           distance of 60" (mult_1rxs)
+ 1260-1265  I6    ---         e1RXS     ? Source number of nearest counterpart
+                                           in the 1RXS catalogue (entr_1rxs)
+ 1267-1272  F6.1  arcsec      d1RXS     ?=0 Distance to nearest 1RXS counterpart
+                                         (dist_1rxs)
+ 1274-1282  F9.5  deg         RA4deg    ?=0 1RXS Right ascension (J2000)
+                                         (RA_1rxs)
+ 1284-1292  F9.5  deg         DE4deg    ?=0 1RXS Declination (J2000) (DEC_1rxs)
+ 1294-1309  A16   ---         1RXS      Source name in the 1RXS catalogue
+                                         for 93790 2RXS sources (SRCNAME_1rxs)
+ 1311-1319  F9.6  ct/s        CR1RXS    ? Source count rate in the 1RXS
+                                           (RATE_1rxs)
+ 1321-1328  F8.6  ct/s        e_CR1RXS  ? Error of RATE_1rxs (RATEerr1rxs)
+ 1330-1341  E12.6 ---         CTS1RXS   ? Background corrected src counts 1RXS
+                                           (CTS_1rxs)
+ 1343-1352  F10.6 ---        e_CTS1RXS  ? Error of CTS_1rxs (CTSerr1rxs)
+ 1354-1357  I4    ---        ExiML1RXS  ? Background corrected src counts 1RXS
+                                           (EXIML1rxs)
+ 1359-1363  I5    s          ExPos1RXS  ? Source exposure time in 1RXS
+                                          (EXPOS_1rxs)
+ 1365-1373  F9.6  ---         HR11RXS   ? 1RXS Hardness ratio 1 value
+                                           (HR1_1rxs) (5)
+ 1375-1382  F8.6  ---        e_HR11RXS  ? Error of HR1 in the 1RXS (HR1e_1rxs)
+ 1384-1392  F9.6  ---         HR21RXS   ? 1RXS Hardness ratio 2 value
+                                           (HR2_1rxs) (5)
+ 1394-1401  F8.6  ---        e_HR21RXS  ? Error of HR2 in the 1RXS (HR2e_1rxs)
+ 1403-1404  I2    ---         mVV10     ? Number of counterparts in the Veron
+                                           and Verson Catalogue within the
+                                           distance of 60" (mult_vv10)
+ 1406-1411  I6    ---         eVV10     ? Source number of VV10 nearest
+                                           counterpart (entr_vv10)
+ 1413-1418  F6.1  arcsec      dVV10     ?=0 Distance to nearest VV10 counterpart
+                                         (dist_vv10)
+ 1420-1436  A17   ---         VV10      VV10 Catalogue name (NAME_vv10)
+    1438  A1    ---         TypeVV10  [ABQ] VV10 Object type (Type_vv10)
+ 1440-1445  F6.3  mag         VmagVV10  ? VV10 V magnitude (Vmag_vv10)
+ 1447-1451  F5.3  ---         zVV10     ? VV10 Redshift (z_vv10)
+ 1453-1458  I6    ---        IndexVV10  ? VV10 Running catalogue number
+                                          for 23140 2RXS sources (Index_vv10)
+ 1460-1468  F9.5  deg         RA5deg    ?=0 VV10 Right ascension (J2000)
+                                         (RA_vv10)
+ 1470-1478  F9.5  deg         DE5deg    ?=0 VV10 Declination (J2000) (DEC_vv10)
+ 1480-1481  I2    ---         mTYC2     ? Number of the nearest counterpart in
+                                           the Tycho2 Catalogue (mult_tyc2)
+ 1483-1489  I7    ---         eTYC2     ? Source number of nearest Tyc2
+                                           counterpart (entr_tyc2)
+ 1491-1496  F6.1  arcsec      dTYC2     ?=0 Distance to nearest Tyc2 counterpart
+                                         (dist_tyc2)
+ 1498-1506  F9.5  deg         RA6deg    ?=0 Tyc2 Right ascension (J2000)
+                                         (RA_tyc2)
+ 1508-1516  F9.5  deg         DE6deg    ?=0 Tyc2 Declination (J2000) (DEC_tyc2)
+ 1518-1524  I7    ---        RecnoTYC2  ? Tycho2 Catalogue number for 
+                                           39706 2RXS sources (RecNo_tyc2)
+ 1526-1531  F6.3  mag         VTmag     ? Tyc2 VT magnitude (VTmag_tyc2) (6)
+ 1533-1538  F6.3  mag         BTmag     ? Tyc2 BT magnitude (BTmag_tyc2) (6)
+ 1540-1543  I4    ---         TYC1      ? Tyc2 TYC1 number (TYC1_tyc2) (7)
+ 1545-1549  I5    ---         TYC2      ? Tyc2 TYC2 number (TYC2_tyc2) (7)
+    1551  I1    ---         TYC3      ? Tyc2 TYC3 number (TYC3_tyc2) (7)
+    1553  I1    ---         mBSC      ? Number of counterparts in the
+                                          Catalogue of Bright Stars (BSC)
+                                          within the distance of 300" (mult_bri)
+ 1555-1558  I4    ---         eBSC      ? Source number of nearest BSC
+                                           counterpart (entr_bri)
+ 1560-1565  F6.1  arcsec      dBSC      ?=0 Distance to nearest BSC counterpart
+                                         (dist_bri)
+ 1567-1575  F9.5  deg         RA7deg    ?=0 BSC Right ascension (J2000) (RA_bri)
+ 1577-1585  F9.5  deg         DE7deg    ?=0 BSC Declination (J2000) (DEC_bri)
+ 1587-1592  F6.3  mag         VmagBSC   ? BSC V magnitude (Vmag_bri)
+ 1594-1613  A20   ---        SpTypeBSC  BSC spectral type (SpType_bri)
+ 1615-1618  I4    ---         RecnoBSC  ? BSC Record catalogue number
+                                         (RecNo_bri)
+ 1620-1625  I6    ---         HD        ? Henry Draper Catalogue Number for 
+                                         2348 2RXS sources (HD_bri)
+    1627  I1    ---         mHMXB     ? Number of counterparts in the Catalog
+                                         of High Mass X-Ray Binaries (HMXBCAT)
+                                         within the distance of 60" (mult_hmxb)
+ 1629-1631  I3    ---         eHMXB     ? Source number of nearest HMXBCAT
+                                           counterpart (entr_hmxb)
+ 1633-1638  F6.1  arcsec      dHMXB     ?=0 Distance og nearest HMXBCAT
+                                         counterpart (dist_hmxb)
+ 1640-1648  F9.5  deg         RA8deg    ?=0 HMXBCAT Right ascension (J2000)
+                                         (RA_hmxb)
+ 1650-1658  F9.5  deg         DE8deg    ?=0 HMXBCAT Declination (J2000)
+                                         (DEC_hmxb)
+ 1660-1680  A21   ---         NameHMXB  HMXBCAT Catalogue name for 36 2RXS 
+                                         sources (Name_hmxb)
+ 1682-1702  A21   ---        Name2HMXB  HMXBCAT Alternative catalogue name
+                                         (Name2_hmxb)
+ 1704-1709  F6.3  mag         VmagHMXB  ? HMXBCAT V magnitude (Vmag_hmxb)
+    1711  I1    ---         mLMXB     ? Number of counterparts in the Catalog
+                                          of Low Mass X-Ray Binaries (LMXBCAT)
+                                          within the distance of 60" (mult_lmxb)
+ 1713-1715  I3    ---         eLMXB     ? Source number of nearest LMXBCAT
+                                           counterpart (entr_lmxb)
+ 1717-1722  F6.1  arcsec      dLMXB     ?=0 Distance to nearest LMXBCAT
+                                         counterpart (dist_lmxb)
+ 1724-1732  F9.5  deg         RA9deg    ?=0 LMXBCAT Right ascension (J2000)
+                                         (RA_lmxb)
+ 1734-1742  F9.5  deg         DE9deg    ?=0 LMXBCAT Declination (J2000)
+                                         (DEC_lmxb)
+ 1744-1759  A16   ---         NameLMXB  LMXBCAT Catalogue name for 65 2RXS
+                                         sources (Name_lmxb)
+ 1761-1773  A13   ---        Name2LMXB  LMXBCAT Alternative catalogue name
+                                         (Name2_lmxb)
+ 1775-1780  F6.3  mag         VmagLMXB  ? LMXBCAT V magnitude (Vmag_lmxb)
+ 1782-1783  I2    ---         mATNF     ? Number of counterparts in the Pulsar
+                                           Catalogue (ATNF) within the distance
+                                           of 60" (mult_atnf)
+ 1785-1788  I4    ---         eATNF     ? Source number of nearest ATNF
+                                           counterpart (entr_atnf)
+ 1790-1795  F6.1  arcsec      dATNF     ?=0 Distance to nearest ATNF counterpart
+                                         (dist_atnf)
+ 1797-1805  F9.5  deg         RA10deg   ?=0 ATNF Right ascension (J2000)
+                                         (RA_atnf)
+ 1807-1815  F9.5  deg         DE10deg   ?=0 ATNF Declination (J2000) (DEC_atnf)
+ 1817-1832  A16   ---         ATNF      ATNF Pulsar name for 177 2RXS sources 
+                                         (Name_atnf)
+ 1834-1844  A11   ---         TypeATNF  ATNF Pulsar type (Type_atnf)
+ 1846-1866  A21   s           PerATNF   ATNF Pulsar period  (Period_atnf)
+    1868  I1    ---         mFUH      ? Number of counterparts in the Catalog
+                                         of Variable Sources from Fuhrmeister
+                                         and Schmitt within the distance of 60"
+                                         (mult_fuh)
+ 1870-1873  I4    ---         eFUH      ? Source number of nearest FUH
+                                           counterpart (entr_fuh)
+ 1875-1880  F6.1  arcsec      dFUH      ?=0 Distance to nearest FUH counterpart
+                                         (dist_fuh)
+ 1882-1890  F9.5  deg         RA11deg   ?=0 FUH Right ascension (J2000) (RA_fuh)
+ 1892-1900  F9.5  deg         DE11deg   ?=0 FUH Declination (J2000) (DEC_fuh)
+ 1902-1905  A4    ---         SeqFUH    FUH Object number (Seq_fuh)
+ 1907-1936  A30   ---         NameFUH   FUH Object name for 1271 2RXS sources
+                                         (Name_fuh)
+ 1938-1939  I2    ---         m1SXPS    ? Number of counterparts in Swift 1SXPS
+                                         catalogue within a distance of 120"
+                                         (mult_1sxps)
+ 1941-1946  I6    ---         e1SXPS    ? Source number of nearest 1SXPS
+                                         counterpart (entr_1sxps)
+ 1948-1953  F6.1  arcsec      d1SXPS    ?=0 Distance to nearest 1SXPS
+                                         counterparts (dist_1sxps)
+ 1955-1963  F9.5  deg         RA12deg   ?=0 1SXPS Right ascension (J2000)
+                                         (RA_1sxps)
+ 1965-1973  F9.5  deg         DE12deg   ?=0 1SXPS Declination (J2000)
+                                         (DEC_1sxps)
+ 1975-1981  I7    s           Exp1SXPS  ? 1SXPS Source exposure time
+                                           (Expos_1sxps)
+ 1983-1984  I2    ---         Det1SXPS  ? 1SXPS Total(0.3-10keV)-band detection
+                                           flag (DET_1sxps)
+ 1986-1988  I3    ---        Det01SXPS  ? 1SXPS Total(0.3-10keV)-band detection
+                                           flag (DET0_1sxps)
+ 1990-1992  I3    ---        Det11SXPS  ? 1SXPS Soft(0.3-1keV)-band detection
+                                           flag (DET1_1sxps)
+ 1994-1996  I3    ---        Det21SXPS  ? 1SXPS Meduin(2-2keV)-band detection
+                                           flag (DET2_1sxps)
+ 1998-2000  I3    ---        Det31SXPS  ? 1SXPS Hard(2-10keV)-band detection
+                                           flag (DET3_1sxps)
+ 2002-2007  I6    ---         1SXPS     ? Running catalogue number in Swift
+                                           for 6983 sources (INDEX_1sxps)
+ 2009-2018  F10.6 ct/s        CR01SXPS  ? Swift Total (0.3-10 keV)-band count
+                                           rate (Rate0_1sxps)
+ 2020-2027  F8.6  ct/s      e_CR01SXPS  ? Swift Error of Rate0_1sxps
+                                           (ERate0_1sxps)
+ 2029-2031  I3    ---         m1RXH     ? Number of counterparts in the 1RXH
+                                           catalogue within the distance of 120"
+                                           (mult_1rxh)
+ 2033-2037  I5    ---         e1RXH     ? Source number of nearest 1RXH
+                                           counterpart (entr_1rxh)
+ 2039-2044  F6.1  arcsec      d1RXH     ?=0 Distance to nearest 1RXH counterpart
+                                         for 2046 sources (dist_1rxh)
+ 2046-2054  F9.5  deg         RA13deg   ?=0 1RXH Right ascension (J2000)
+                                         (RA_1rxh)
+ 2056-2064  F9.5  deg         DE13deg   ?=0 1RXH Declination (J2000) (DEC_1rxh)
+ 2066-2086  A21   ---         1RXH      Source name in the 1RXH (SRCNAME_1rxh)
+ 2088-2096  F9.6  ct/s        CR1RXH    ? 1RXH Source count rate (CRATE_1rxh)
+ 2098-2105  F8.6  ct/s        e_CR1RXH  ? Error of CRATE_1RXH (CRATEerr1rxh)
+ 2107-2112  I6    s           ETim1RXH  ? 1RXH Source exposure time
+                                           (ExpTime_1rxh)
+ 2114-2118  F5.1  ---         SNR1RXH   ? 1RXH Signal-to-noise ratio (SNR_1rxh)
+    2120  I1    ---         mFlem     ? Number of counterparts in the Catalog
+                                           of White Dwarfs from Flemming within
+                                           the distance of 60" (mult_flem)
+ 2122-2124  I3    ---         eFlem     ? Source number of nearest Flemming
+                                           counterpart (entr_flem)
+ 2126-2131  F6.1  arcsec      dFlem     ?=0 Distance to nearest Flemming
+                                         counterpart (dist_flem)
+ 2133-2141  F9.5  deg         RA14deg   ?=0 Flemming Right ascension (J2000)
+                                         (RA_flem)
+ 2143-2151  F9.5  deg         DE14deg   ?=0 Flemming Declination (J2000)
+                                         (DEC_flem)
+ 2153-2166  A14   ---         Flem      Source name in the Flemming Catalogue
+                                         for 168 2RXS sources (SRCNAME_flem)
+ 2168-2177  A10   ---         TypeFlem  Flemming  Object type (Type_flem)
+    2179  A1    ---         WFCFlem   [Y/N] Flemming Wide Field Camera
+                                         detection?  (WFC_flem)
+ 2181-2186  F6.3  ct/s        CRFlem    ? Flemming count rate (Rate_flem)
+ 2188-2195  F8.6  ct/s        e_CRFlem  ? Error of the Flemming count rate
+                                           (eRateflem)
+    2197  I1    ---         mWD       ? Number of counterparts in the Catalog
+                                           of White Dwarfs within the distance
+                                           of 60 " (mult_wd)
+ 2199-2203  I5    ---         eWD       ? Source number of nearest WD
+                                           counterpart (entr_wd)
+ 2205-2210  F6.1  arcsec      dWD       ?=0 Distance to nearest WD counterpart
+                                         (dist_wd)
+ 2212-2220  F9.5  deg         RA15deg   ?=0 WD Right ascension (J2000) (RA_wd)
+ 2222-2230  F9.5  deg         DE15deg   ?=0 WD Declination (J2000) (DEC_wd)
+ 2232-2241  A10   ---         WD        WD Source name in the Catalogue
+                                         for 425 2RXS sources (SRCNAME_wd)
+ 2243-2248  F6.3  mag         VmagWD    ? WD V-magnitude (Vmag_wd)
+ 2250-2255  F6.3  mag         VsphotWD  ? WD V mag: multichannel
+                                           spectrophotometry (Vsphot_wd)
+    2257  I1    ---         mSDSS     ? Source number of the nearest
+                                           counterpart in the Sloan Catalogue
+                                           (mult_sdss)
+ 2259-2261  I3    ---         eSDSS     ? Source number of SDSS nearest
+                                           counterpart (entr_sdss)
+ 2263-2268  F6.1  arcsec      dSDSS     ?=0 Distance to nearest SDSS counterpart
+                                         (dist_sdss)
+ 2270-2278  F9.5  deg         RA16deg   ?=0 SDSS Right ascension (J2000)
+                                         (RA_sdss)
+ 2280-2288  F9.5  deg         DE16deg   ?=0 SDSS Declination (J2000) (DEC_sdss)
+ 2290-2313  A24   ---         SDSS      SDSS Object name for 611 2RXS sources
+                                         (SDSS_NAME)
+ 2315-2324  F10.6 deg         LambdaS   ? SDSS Latitude in elliptical coordinate
+                                         (LAMBDA_sdss)
+ 2326-2335  F10.6 deg         BetaS     ? SDSS  Longitude in elliptical
+                                         coordinate (BETA_sdss)
+ 2337-2338  I2    ---         m2RXS     ? Number of counterparts in the 2RXS
+                                         catalogue within the distance of 60"
+                                         (mult_2rxs)
+ 2340-2345  I6    ---         e2RXS     ? Source number of 2RXS counterpart
+                                           (entr_2rxs)
+ 2347-2352  F6.1  arcsec      d2RXS     ?=0 Distance to 2RXS counterpart
+                                         (dist_2rxs)
+ 2354-2359  I6    ---         I2RXS     ? Index of the nearest 2RXS counterpart
+                                           (INDEX_2rxs)
+ 2361-2366  I6    ---         Seq2RXS   ? Number of sky field of 2RXS nearest
+                                           counterpart (SEQID2rxs)
+ 2368-2371  I4    ---         IndD2RXS  ? Field detection number of 2RXS nearest
+                                           counterpart (INDDET2rxs)
+ 2373-2381  F9.2  ---        ExiML2RXS  ? Detection likelihood of 2RXS  nearest
+                                           counterpart (EXIML2rxs)
+ 2383-2390  F8.4  ct/s        CR2RXS    ? Source count rate of 2RXS nearest
+                                           counterpart (RATE_2rxs)
+ 2392-2400  F9.5  deg         RA17deg   ?=0 2RXS Right ascension (J2000)
+                                         (RA_2rxs)
+ 2402-2410  F9.5  deg         DE17deg   ?=0 2RXS Declination (J2000) (DEC_2rxs)
+ 2412-2413  I2    ---         USKY2rxs  [-1/9]? Sub-field detection cell of
+                                          2RXS nearest counterpart (USKY_2rxs)
+    2415  I1    ---         Flag2rxs  [0/1]? Nearby flag of 2RXS nearest
+                                         counterpart, 0=best (FLAG_2rxs)
+    2417  I1    ---         BkgId     ? Selected background (BKG_id)
+ 2419-2427  F9.2  pix         Xbkg1     ? X_sky coordinate of background
+                                           center 1 in sky pixel (XBKG1)
+ 2429-2437  F9.2  pix         Ybkg1     ? Y_sky coordinate of background
+                                           center 1 in sky pixel (YBKG1)
+ 2439-2447  F9.2  pix         Xbkg2     ? X_sky coordinate of background
+                                           center 2 in sky pixel (XBKG2)
+ 2449-2457  F9.2  pix         Ybkg2     ? Y_sky coordinate of background
+                                           center 2 in sky pixel (YBKG2)
+ 2459-2467  E9.3 ct/s/arcmin2 BGR1rxs   ? Background count rate per square
+                                         arcmin from 1RXS (BGR_1rxs)
+ 2469-2480  E12.6 ct/s/arcmin2 BGR2rxs  Background count rate per square arcmin
+                                         from 2RXS (BGR_2rxs)
+    2482  I1    ---         Lflag     ? Variability flag  0=good,1=bkg
+                                           (LFLAG) (8)
+ 2484-2492  F9.5  ct/s        CM6       ? Count rate for light curve with less
+                                           than 6s exposure (CM6)
+ 2494-2502  F9.5  ct/s        CD6       ? Standard deviation of light curves
+                                           with less than 6s exposure (CD6)
+ 2504-2515  E12.6 ---         ExVAR6    ? Excess variance for light curves
+                                           with less than 6s exposure
+                                          (EXCESSVAR6)
+ 2517-2528  E12.6 ---         e_ExVAR6  ? Excess variance uncertainty
+                                           (UNCERTAINTY6)
+ 2530-2533  I4    ---         NbinsA    ? Number of data points in the LC
+                                           (NBINS_A)
+ 2535-2538  I4    ---         Nbins6    ? Number of data points with exposures
+                                           times less than 6s (NBINS_6)
+ 2540-2541  I2    ---         Nbins1    ? Number of data points with exposures
+                                           times less than 1s (NBINS_1)
+ 2543-2544  I2    ---         NbinsN    ? Number of data points with exposure
+                                           times greater than 6s (NBINS_N)
+ 2546-2555  F10.6 ct/s        Cmin6     ? Minimum count rate for light curves
+                                           with exposure times of less than 6s
+                                          (CMIN6)
+ 2557-2566  F10.6 ct/s        Cmax6     ? Maximum count rate for light curves
+                                           with exposure times of less than 6s
+                                          (CMAX6)
+ 2568-2575  F8.6  ct/s        e_Cmin6   ? Error of CMIN6 (EMIN6)
+ 2577-2584  F8.6  ct/s        e_Cmax6   ? Error of CMAX6 (EMAX6)
+ 2586-2594  F9.2  ct          CTSlc6    [-]? Number of counts for light curves
+                                         with exposure times of less than 6s
+                                         (CTS_lc6) Not used
+ 2596-2605  F10.6 ---         sigex6    ? Excess variance for light curves with
+                                           exposure times of less than 6s
+                                           (SIGMA_excess6)
+ 2607-2616  F10.6 ---         CM+CD     ? Sum of count rate + standard deviation
+                                           (CMplusCD)
+ 
+Note (1): Each source has been attributed an IAU name according to the IAU
+  conventions. As this is the second ROSAT catalogue of point sources
+  the prefix 2RXS is given in addition to the coordinate naming convention.
+Note (2): Hardness ratio 1 values as calculated from the source counts in the
+  energy channels A (11-41), B (52-201) by: HR_1=(B-A)/(B+A)
+ Hardness ratio 2 values as calculated from the source counts in the
+  energy channels C (52-90), D(91-201) by: HR_2=(D-C)/(D+C)
+Note (3): Sub-field detection cell defined in sky coordinates.
+
+Note (4): Screening flag (0=good, not equal to 0 = screening flag set)
+
+Note (5): 1RXS hardness ratio 1 values have been calculated from the source
+  counts in the energy channels A (11-41), B (52-201) by: HR_1=(B-A)/(B+A)
+  in 1RXS
+ Hardness ratio 2 values have been calculated from the source counts in the
+  energy channels C (52-90), D(91-201) by: HR_2=(D-C)/(D+C) in the 1RXS
+Note (6): (cf Note 7 of the Tycho-2 online catalogue description).
+
+Note (7): Tyhco 2 name (c.f. Note 1 of the Tycho-2 online catalogue description)
+
+Note (8): quality flag for background selection for lightcurves and spectra:
+     0=good, bit 1: sum of CM+CD<0, bit 2: background in masked region
+ 
+
+Acknowledgements:
+   Thomas Boller, bol(at)mpe.mpg.de
+   Frank Haberl, fwh(at)mpe.mpg.de
+   Michael Freyberg, mjf(at)mpe.mpg.de
+ (End)                                        Patricia Vannier [CDS]  23-Mar-2016
+
+ The document above follows the rules of the Standard Description for Astronomical Catalogues.From this documentation it is possible to generate f77 program to load files into arrays or line by line catalogue service © UDS/CNRS Contact

@@ -1,0 +1,100 @@
+#ThisURL#
+http://vizier.cfa.harvard.edu/vizier/
+#SubURL#
+http://vizier.nao.ac.jp/vizier/
+http://www.esrin.esa.it/esrin/esrin.html
+http://vizier.cfa.harvard.edu/vizier/kohonen.htx
+http://cds.u-strasbg.fr//news.php
+http://vizier.cfa.harvard.edu/vizier/cats/M.htx
+http://cds.u-strasbg.fr/cgi-bin/Sesame
+http://cdsweb.u-strasbg.fr/vizier/doc/vizquery.htx
+http://vizier.u-strasbg.fr/
+http://cdsweb.u-strasbg.fr/~patricia/
+http://cdsbib.u-strasbg.fr/cgi-bin/cdsbib
+http://vizier.cfa.harvard.edu/viz-bin/VizieR?-meta=au&-out.form=TSV&-file=-c
+http://vizier.inasan.ru/vizier/
+http://www.ukirt.hawaii.edu/vizier/
+http://cds.u-strasbg.fr//tutorial/vizier/advancedviziertutorial.pdf
+http://vizier.cfa.harvard.edu/vizier/#
+http://dopey.mcmaster.ca/gschwarz/main.html
+http://cdsweb.u-strasbg.fr/~marianne/
+http://cds.u-strasbg.fr//tutorial/vizier/advanced/advancedviziertutorial.gml
+http://vizier.cfa.harvard.edu/vizier/doc/vizquery.htx
+http://vizier.cfa.harvard.edu/vizier/cats/cats.htx
+http://vizier.china-vo.org/vizier/
+http://aladin.u-strasbg.fr/aladin.gml
+http://vizier.cfa.harvard.edu/vizier/sed/
+http://simbad.harvard.edu
+http://vizier.cfa.harvard.edu/vizier/vizHelp/faq.htx
+http://cdsweb.u-strasbg.fr/SimPlay
+http://vizier.cfa.harvard.edu/viz-bin/Dic-Simbad
+http://vizier.cfa.harvard.edu/viz-bin/VizieR
+http://cds.u-strasbg.fr/vizier-org/licences_vizier.html
+http://www.ivoa.net/
+http://cds.u-strasbg.fr//tutorial/vizier/basic/viziertutorial.gml
+http://www.cfa.harvard.edu/
+http://cdsweb.u-strasbg.fr/~landais/
+mailto:cds-question@unistra.fr?Subject=VizieR%20Home%20Page%20%28vizier.cfa.harvard.edu%29
+http://cdsweb.u-strasbg.fr/~francois
+http://vizier.hia.nrc.ca/vizier/
+http://viziersaao.chpc.ac.za/vizier/
+http://cdsarc.u-strasbg.fr/viz-bin/Cat
+http://vizier.ast.cam.ac.uk/vizier/
+http://vizier.iucaa.in/vizier/
+http://cdsweb.u-strasbg.fr/help
+http://www.ivoa.net/Documents/latest/ADQL.html
+http://cdsweb.u-strasbg.fr/cdsws.gml
+http://cds.u-strasbg.fr//tutorial/vizier/viziertutorial.pdf
+mailto:cds-question@unistra.fr
+http://cds.u-strasbg.fr/vizier/submit.htx
+http://adswww.harvard.edu/abs/2000A%26AS..143...23O
+http://cdsxmatch.u-strasbg.fr
+http://cdsportal.u-strasbg.fr
+http://cds.u-strasbg.fr/
+http://tapvizier.u-strasbg.fr/adql/
+#Title#
+VizieR
+#Content#
+Portal Simbad VizieR Aladin X-Match Other Sesame name resolver Catalogue collection TAP VizieR Dictionary of nomenclature SimPlay Bibliography Contact us Help The VizieR Catalogue Service The basic VizieR search at the Center For Astrophysics (Harvard) 
+||
+|| 
+
+
+  any Catalog More... 
+
+
+
+
+
+
+
+
+  
+Target:
+  
+  
+Radius:
+
+''
+  
+ Install the VizieR search plugin e.g. UCAC2,2MASS or   Jaschek e.g. CH Cyg or   19 24 33.1 +50 14 29 Advanced search Description - Browsing modes - Large catalogues & Surveys - VO compatibility - VizieR mirrors - Help/Documentations - Notes Description VizieR provides access to the most complete library of published astronomical catalogues and data tables available on line (14412 catalogues), organized in a self-documented database. Query tools allow the user to select relevant data tables and to extract and format records matching given criteria. Specific care has been taken for optimizing access to some very large catalogues such as UCAC2, the USNO-B1, or the 2MASS last release. VizieR is a joint effort of CDS (Centre de Données astronomiques de Strasbourg) and ESA-ESRIN (Information Systems Division). VizieR has been available since 1996, and was described in a paper published in A&AS 143, 23 (2000). Note that VizieR does not contain all available online catalogues; some catalogues are not suitable and some less frequently used catalogues have not yet been incorporated into the VizieR database. These last ones can be accessed by FTP from the Astronomer's Bazaar. Simple browsing modes Besides the basic and advanced searches, the existing catalogues may be located through lists organized in several ways: 
+   Designations 
+	Browse through the list of catalogues in its original hierarchical 
+	organisation 
+   Acronyms  
+	Browse through the known catalog acronyms or abbreviations 
+   Favorites 
+	Browse through the list of the most frequently queried catalogs 
+   Date 
+	Browse through the catalogs recently entered into VizieR 
+   Images/Spectra 
+	Browse through catalogs having associated data,
+	like images, spectra, data cubes (3-D images),
+	time series... 
+    
+	The VizieR Mine is a graphical interface to locate the
+	catalogues existing on sky regions 
+     
+	The Kohonen Self-Organizing Map groups on nearby locations
+	of a map catalogues having similar contents. 
+ VizieR and the Virtual Observatory VizieR can deliver in its advanced mode the results in VOTable, a format which ensures a compatibility the Virtual Observatory tools. VizieR tables are queriable by the VO standard TAP which use the SQL language extension ADQL. VizieR may also in its advanced mode be queried from lists of targets and deliver results in a simple-to-parse tab-separated-values format. Some programmatic interfaces are also available: vizquery is a script which can perform remote queries in all available VizieR modes (individual queries, submission of lists, choice among several output formats); it can run from any Unix/Linux platform Web Services access is also available – though it is inevitably slower than the direct HTTP connection. Help, Documentation Introduction Tutorial The basic tutorial - pdf The advanced tutorial - pdf Frequently Asked Questions List of standard catalogue acronyms Preparing and Submitting Tabular Data News (recent changes) Query VizieR using the batch mode (the cdsclient package) VizieR mirrors VizieR service Your VizieR service VizieR at CDS Strasbourg, France VizieR at ADAC Tokyo, Japan VizieR at CADC Victoria, Canada VizieR at Cambridge UK VizieR at IUCAA Pune, India VizieR at INASAN Moscow, Russia VizieR at NAOC Beijng, China VizieR at CFA Harvard Cambridge, USA VizieR at JAC Hilo, Hawaii, USA VizieR at SAAO SAAO, South Africa Notes This service is maintained by François Ochsenbein and Gilles Landais at CDS; Patricia Vannier and Marianne Brouty are taking care of the prepartion of the tabular material at CDS, and Greg Schwarz takes care of the tabular material for the AAS journals. Thanks also to all contributors, authors and editors. Tools related to VizieR Photometry viewer : Plot photometry (sed) including all VizieR TAP VizieR : query VizieR using ADQL (a SQL extension dedicated for astronomy) CDS cross-match service : fast cross-identification between any 2 tables, including VizieR catalogues, SIMBAD If the access to catalogues with VizieR was helpful for your research work, the following acknowledgment would be appreciated: ``This research has made use of the VizieR catalogue access tool, CDS, Strasbourg, France''. The original description of the VizieR service was published in A&AS 143, 23 (2000). Get more information : Rules of usage for VizieR data © UDS/CNRS Contact

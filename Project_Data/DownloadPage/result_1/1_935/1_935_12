@@ -1,0 +1,24 @@
+#ThisURL#
+http://www.britannica.com/quiz/the-bitter-truth
+#SubURL#
+http://www.britannica.com/quiz/vegetable-medley
+http://www.britannica.com/quiz/the-bitter-truth#
+http://www.britannica.com/quiz/chess-master-fact-or-fiction
+https://safe1.britannica.com/registrations2/signup.do?partnerCode=EBOPBPSUBQUIZ_LP_MDL_D
+http://www.britannica.com/gallery/browse
+http://www.britannica.com/quiz/gadgets-and-technology-fact-or-fiction
+http://www.britannica.com/quiz/exploring-human-bones-fact-or-fiction
+http://www.britannica.com/quiz/browse
+http://info.eb.com
+http://corporate.britannica.com/termsofuse.html
+http://corporate.britannica.com/privacy.html
+http://www.britannica.com/
+http://corporate.britannica.com/publishing-partner-program
+http://www.britannica.com/quiz/around-the-caribbean-fact-or-fiction
+http://www.britannica.com/list/browse
+http://corporate.britannica.com/contact/consumer/
+http://corporate.britannica.com
+#Title#
+The Bitter Truth Quiz | Britannica.com
+#Content#
+School and Library Subscribers JOIN LOGIN Activate Your Free Trial! stories quizzes galleries lists The Bitter Truth You have {{ vm.secondsPerQuiz }} seconds to answer each question. The faster you answer, the higher your score. When you're done, try again to beat your best score!Start This Quiz :{{vm.state.secondsLeft|fixedLength:2}} QUESTION {{(vm.state.currentQuestion + 1)}} of {{vm.questions.length}} Timer Score {{vm.state.score}} The Bitter Truth :{{vm.state.secondsLeft|fixedLength:2}} QUESTION {{(vm.state.currentQuestion + 1)}} of {{vm.questions.length}} Timer Score {{vm.state.score}} The Bitter Truth {{vm.state.nextLabel}} Quiz Results The Bitter Truth {{vm.state.numberCorrect}}/{{vm.questions.length}} correct {{vm.state.score}}/{{vm.maxPoints}} points Replay Share your score Log in to save your score! Food Vegetable Medley History American History and Politics Pop Culture Chess Master: Fact or Fiction? Technology Gadgets and Technology: Fact or Fiction? Geography Around the Caribbean: Fact or Fiction? Are you a Quizmaster? Log in to save your score and compete against the community! Compare your score Max Score: {{vm.maxPoints}} New Best Score! {{vm.state.score}} {{vm.communityAverage|number:0}} Your Score Community Average High scores Your results {{vm.state.responsesVisible ? 'Hide' : 'Show'}} Answers Questions Correct {{vm.state.numberCorrect}} / {{vm.questions.length}} Total Score {{vm.state.score}} / {{vm.maxPoints}} Question Question {{($index + 1)}} Your Answer: {{vm.state.responses[$index].isCorrect ? 'Your' : ''}} Correct Answer: Back to Top Philosophy & Religion Buddha and Buddhism Arts & Culture Ultimate Art Quiz Music Music 101: Fact or Fiction? Health & Medicine Exploring Human Bones: Fact or Fiction? Do you have a correction, suggestion or feedback? Comment below. About Us About Our Ads Partner Program Contact Us Privacy Policy Terms of Use ©2016 Encyclopædia Britannica, Inc. To From Subject Comments (Please limit to 900 characters) Cancel Or click Continue to submit anonymously: Continue

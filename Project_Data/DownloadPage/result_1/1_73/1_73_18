@@ -1,0 +1,24 @@
+#ThisURL#
+http://www.britannica.com/quiz/saints
+#SubURL#
+http://www.britannica.com/quiz/tom-cruise
+http://www.britannica.com/quiz/saints#
+http://www.britannica.com/quiz/physics-fact-or-fiction
+http://www.britannica.com/gallery/browse
+http://www.britannica.com/auth/loginbox?url=http://www.britannica.com/quiz/saints
+http://www.britannica.com/quiz/browse
+http://www.britannica.com/quiz/holidays-and-festivals-which-religion
+http://info.eb.com
+http://corporate.britannica.com/termsofuse.html
+http://corporate.britannica.com/privacy.html
+http://www.britannica.com/
+http://corporate.britannica.com/publishing-partner-program
+http://www.britannica.com/quiz/vipers-cobras-and-boasoh-my
+http://www.britannica.com/quiz/nobel-prize
+http://corporate.britannica.com/contact/consumer/
+https://safe1.britannica.com/registrations2/signup.do?partnerCode=EBOPBPSUBQUIZ_LP_MDL_A
+http://corporate.britannica.com
+#Title#
+Saints Quiz | Britannica.com
+#Content#
+School and Library Subscribers JOIN LOGIN Activate Your Free Trial! stories quizzes galleries lists Saints You have {{ vm.secondsPerQuiz }} seconds to answer each question. The faster you answer, the higher your score. When you're done, try again to beat your best score!Start This Quiz :{{vm.state.secondsLeft|fixedLength:2}} QUESTION {{(vm.state.currentQuestion + 1)}} of {{vm.questions.length}} Timer Score {{vm.state.score}} Saints :{{vm.state.secondsLeft|fixedLength:2}} QUESTION {{(vm.state.currentQuestion + 1)}} of {{vm.questions.length}} Timer Score {{vm.state.score}} Saints {{vm.state.nextLabel}} Quiz Results Saints {{vm.state.numberCorrect}}/{{vm.questions.length}} correct {{vm.state.score}}/{{vm.maxPoints}} points Replay Share your score Log in to save your score! Philosophy & Religion Holidays and Festivals: Which Religion? Society Nobel Prize Animals Vipers, Cobras, and Boas...Oh My! Technology Acoustics and Radio Technology: Fact or Fiction? Arts & Culture Know Your Photographers Are you a Quizmaster? Log in to save your score and compete against the community! Compare your score Max Score: {{vm.maxPoints}} New Best Score! {{vm.state.score}} {{vm.communityAverage|number:0}} Your Score Community Average High scores Your results {{vm.state.responsesVisible ? 'Hide' : 'Show'}} Answers Questions Correct {{vm.state.numberCorrect}} / {{vm.questions.length}} Total Score {{vm.state.score}} / {{vm.maxPoints}} Question Question {{($index + 1)}} Your Answer: {{vm.state.responses[$index].isCorrect ? 'Your' : ''}} Correct Answer: Back to Top Science Physics: Fact or Fiction? Pop Culture Tom Cruise History Faces of European History: Fact or Fiction? Literature & Language Name that Mark Do you have a correction, suggestion or feedback? Comment below. About Us About Our Ads Partner Program Contact Us Privacy Policy Terms of Use ©2016 Encyclopædia Britannica, Inc. To From Subject Comments (Please limit to 900 characters) Cancel Or click Continue to submit anonymously: Continue

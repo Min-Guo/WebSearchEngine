@@ -1,0 +1,82 @@
+#ThisURL#
+http://www.philosophypages.com/lg/e10b.htm
+#SubURL#
+http://www.philosophypages.com/dy/m9.htm#mt
+http://www.philosophypages.com/dy/v.htm#valid
+http://www.philosophypages.com/dy/d9.htm#ds
+http://www.philosophypages.com/sy.htm
+http://www.philosophypages.com/dy/s9.htm#subst
+http://www.philosophypages.com/dy/a7.htm#argform
+http://www.philosophypages.com/dy/zt.htm
+http://www.philosophypages.com/dy/d2.htm#depro
+http://www.philosophypages.com/lg/e08a.htm#form
+http://www.philosophypages.com/hy/index.htm
+http://creativecommons.org/licenses/by-sa/3.0/
+http://www.britannica.com/
+#Title#
+Argument Forms
+#Content#
+Philosophy Pages     Dictionary    Study Guide  Logic   F A Q s   History Timeline Philosophers   Locke   Argument Forms Substitution-Instances Since the statements of the propositional calculus are propositions, they can be combined to form logical arguments, complete with one or more premises and a single conclusion that may follow validly from them. Thus, for example, each of the following is an argument expressed in the language of symbolic logic: 
+ A ⊃ B        (D • B) ⊃ ~E        (A ∨ E) ⊃ (D ≡ B)
+
+ A             D • B               A ∨ E
+ _______      _______________     ________________________
+
+ B            ~E                   D ≡ B
+ What is more, notice that all three of these arguments share a common structure: the first premise of each is a  ⊃ statement; the second premise is the antecedent of that statement; and the conclusion is its consequent. We can exhibit this common structure more clearly by using statement variables to express the argument form involved: 
+			p ⊃ q
+
+			p
+			________
+
+			q
+ Each of the three arguments above is a substitution instance of this argument form, since each of them results from the substitution of an appropriate (simple or compound) statement for each of the statement variables in the argument form. Notice that these substitutions must be consistent in each application; once we've put  D • B  in the place of  p  in the first premise of the second argument, for example, we must also put it in the place of  p  in the second premise. In the same way, the first and third arguments abovealong with indefinitely many otherscan be shown to be substitution-instances of the same argument form. Most arguments are substitution-instances of several distinct argument forms, each of which can be no more complex in structure than the argument itself. Testing for Validity Recognizing individual arguments as substitution-instances of more general argument forms is an important skill because, as we've already seen, the validity of any argument depends solely upon its logical form. An argument in the propositional calculus is valid whenever it is a substitution-instance of an argument form in which it is impossible for the premises to be true and the conclusion false. Since the argument form reliably leads from premises of a certain general structure to a conclusion of a different structure, every substitution-instance of that argument form must express a valid argument. Thus, the same truth-tables we used to define the statement connectives provide an effective decision procedure for determining the validity of arguments in the propositional calculus. We simply chart the truth-values of each premise and the conclusion of an argument form for every possible combination of truth-values for the statement variables involved, and look to see what happens on those lines of the truth-table in which all of the premises are true. If the conclusion is also true on each of these lines, then the inference captured by the argument form is a valid one, and arguments of this form must all be valid. If, however, there is even a single line on which all of the premises are true but the conclusion is false, then the inference is invalid, and we cannot be sure whether arguments of this form are valid or invalid. (They certainly are not valid because of this form, but of course some of them may happen to be substitution-instances of other argument forms whose inferences are valid.) Modus Ponens Consider, for example, what happens when we construct a truth-table that lists each of the four combinations of truth-values that the component statements could exhibit in the simple argument form that we identified at the top of this page. 1st Premise 2nd Premise Conclusion  p   q  p ⊃ q p q T T T T T T F F T F F T T F T F F T F F 
+	p ⊃ q
+
+	p
+	_______
+
+	q
+ This truth-table shows that (no matter what statements we substitute for  p  and  q ) both of the premises of the argument will be true only on the first line (when both component statements are true). But on that line, the conclusion is also true, so the inference is valid. Whenever we come across an argument that shares this basic structure, we can be perfectly certain of its logical validity. In fact, arguments of this form are so common that the form itself has a name, Modus Ponens, which we will usually abbreviate as M.P. On the other hand, consider what happens when we construct a truth-table for testing the validity of a distinct, though superficially similar, argument form: 1st Premise 2nd Premise Conclusion  p   q  p ⊃ q q p T T T T T T F F F T F T T T F F F T F F 
+	p ⊃ q
+
+	q
+	_______
+
+	p
+ In arguments of this form, both premises are true on the first and on the third lines of the truth-table. While the conclusion is true on the first line, on the third line it is false. Since it is therefore possible for the premises to be true while the conclusion is false, the inference is invalid. This unreliable argument form is called the fallacy of affirming the consequent. Although it might be mistaken for M.P. at a casual glance, the fallacyunlike its valid cousindoes not guarantee the truth of its conclusion. Modus Tollens Another common argument form with a valid inference is Modus Tollens (abbreviated as M.T.), which has the form: 1st Premise 2nd Premise Conclusion  p   q  p ⊃ q ~ q ~ p T T T F F T F F T F F T T F T F F T T T 
+	p ⊃ q
+
+	~ q
+	_______
+
+	~ p
+ As the truth-table shows, the premises are true only when both of the component statements are false, in which case the conclusion is also true. There is no line on which both premises are true and the conclusion false, so the inference is valid, as are all substitution-instances of this argument form. As with M.P., there is an argument form superficially similar to M.T. that yields entirely different results. 1st Premise 2nd Premise Conclusion  p   q  p ⊃ q ~ p ~ q T T T F F T F F F T F T T T F F F T T T 
+	p ⊃ q
+
+	~ p
+	_______
+
+	~ q
+ This is the fallacy of denying the antecedent. As the truth-table to the right clearly shows, it is an unreliable inference, since it is possible (on the third line) for both of its premises to be true while its conclusion is false. Substitution-instances of this argument form may not be valid. Hypothetical Syllogism 1st Premise 2nd Premise Conclusion  p   q   r  p ⊃ q q ⊃ r p ⊃ r T T T T T T T T F T F F T F T F T T T F F F T F F T T T T T F T F T F T F F T T T T F F F T T T A larger truth-table is required to demonstrate the validity of the argument form called Hypothetical Syllogism (H.S.), since it involves three statement variables instead of two, and we must consider all eight of the possible combinations of their truth-values: 
+	p ⊃ q
+
+	q ⊃ r
+	_______
+
+	p ⊃ r
+ Despite its greater size, this truth-table establishes validity in exactly the same way as its more compact predecessors: both premises are true only on the first, fifth, seventh, and eighth lines, and the conclusion is also true on each of these lines. It follows that all arguments sharing in thisgeneral form must be valid. Disjunctive Syllogism Finally, consider the argument form known as Disjunctive Syllogism or D.S. 1st Premise 2nd Premise Conclusion  p   q  p ∨ q ~ p q T T T F T T F T F F F T T T T F F F T F 
+	p ∨ q
+
+	~ p
+	_____
+
+	q
+ The truth-table demonstration of its validity should look familiar by now. Whenever the premises are true (on the third line of the truth table), so is the conclusion. Once again, however, there is a similar form that embodies an invalid inference, the fallacy of affirming the alternative: 1st Premise 2nd Premise Conclusion  p   q  p ∨ q p ~ q T T T T F T F T T T F T T F F F F F F T 
+	p ∨ q
+
+	p
+	_____
+
+	~ q
+ In this case, the first line of the truth-table shows that (with our inclusive sense of the  ∨ ) it is possible for the premises to be true and the conclusion false. The Philosophy Pages by Garth Kemerling are licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License. Permissions beyond the scope of this license may be available at http://www.philosophypages.com/referral/contact.htm. ©1997, 2011 Garth Kemerling. Last modified 12 November 2011. Questions, comments, and suggestions may be sent to: the Contact Page.

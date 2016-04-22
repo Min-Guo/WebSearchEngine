@@ -1,0 +1,45 @@
+#ThisURL#
+http://www.philosophypages.com/lg/e10c.htm
+#SubURL#
+http://www.philosophypages.com/dy/index.htm
+http://www.philosophypages.com/ph/index.htm
+http://www.philosophypages.com/dy/d9.htm#dn
+http://www.philosophypages.com/dy/c7.htm#cont
+http://www.philosophypages.com/dy/i.htm#impl
+http://www.philosophypages.com/dy/t.htm#taug
+http://www.britannica.com/
+http://www.philosophypages.com/sy.htm
+http://www.philosophypages.com/dy/s9.htm#stfo
+http://www.philosophypages.com/dy/n.htm#negan
+http://www.philosophypages.com/dy/zt.htm
+http://creativecommons.org/licenses/by-sa/3.0/
+#Title#
+Statement Forms
+#Content#
+Philosophy Pages     Dictionary    Study Guide  Logic   F A Q s   History Timeline Philosophers   Locke   Statement Forms In exactly the same sense that individual arguments may be substitution-instances of general argument forms, individual compound statements can be substitution-instances of general statement forms. In addition, just as we employ truth-tables to test the validity of those arguments, we can use truth-tables to exhibit interesting logical features of some statement forms. Tautology A statement form whose column in a truth-table contains nothing but Ts is said to be tautologous. Consider, for example, the statement form:  p   ~ p   p ∨ ~ p  T F T F T T 
+		p ∨ ~p
+ Notice that whether the component statement  p  is true or false makes no difference to the truth-value of the statement form; it yields a true statement in either case. But it follows that any compound statement which is a substitution-instance of this formno matter what its contentcan be used only to make true assertions. Contradiction A statement form whose column contains nothing but Fs, on the other hand, is said to be self-contradictory. For example:  p   ~ p   p • ~ p  T F F F T F 
+		p • ~p
+ Again, the truth-value of the component statement doesn't matter; the result is always false. Compound statements that are substitution-instances of this statement form can never be used to make true assertions. Contingency Of course, most statement forms are neither tautologous nor self-contradictory; their truth-tables contain both Ts and Fs. Thus:  p   q  p ⊃ ~ q T T F T F T F T T F F T 
+		p ⊃ ~q
+ Since the column underneath it in the truth-table has at least one T and at least one F, this statement form is contingent. Statements that are substitution-instances of this statement form may be either true or false, depending upon the truth-value of their component statements. Assessing Statement Forms Because all five of our statement connectives are truth-functional, the status of every statement-form is determined by its internal structure. In order to determine whether a statement form is tautologous, self-contradictory, or contingent, we simply construct a truth-table and inspect the appropriate column. Consider, for example, the statement form:  p   q  (p ∨ ~q) ⊃ ~(p • q) T T T F F T F T T T F T F T T F F T T T 
+	(p ∨ ~q) ⊃ ~(p • q)
+ Since the truth-table shows that statements of this form can be either true or false, depending upon the truth-values of their components, the statement form is contingent. Logical Equivalence A particularly interesting and useful group of cases comprises those tautologous statement forms whose main connective happens to be a  ≡ . In order for the  ≡  statement to be true on every line, the statement forms on either side of it must always have exactly the same truth-value. Statements that are substitution-instances of these two component statement-forms are then said to be logically equivalent: no matter what their content may happen to be, the conditions for their truth or falsity are exactly the same. Consider a few examples that recur frequently enough to warrant special names: Double Negation Double Negation (abbreviated as D.N.) has the form:  p  ≡  ~ ~ p  T T T F T F 
+	p ≡ ~ ~ p
+ As the truth-table to the right clearly shows, this is a tautologous biconditional. No matter what simple or compoud statement we substitute for  p , the same statement with two  ~ s in front of it will have exactly the same truth-value as the original statement. De Morgan's Theorems A pair of more complex tautologous biconditionals are called De Morgan's Theorems (DeM., for short).  p   q  ~(p • q) ≡ (~p ∨ ~q) T T F T F T F T T T F T T T T F F T T T One form in which DeM. occurs is: 
+	~(p • q) ≡ (~p ∨ ~q)
+ As the truth-table at right shows, the statement forms on either side of the  <⊃  always have the same truth-value.  p   q  ~(p ∨ q) ≡ (~p • ~q) T T F T F T F F T F F T F T F F F T T T The other form of DeM. is: 
+	~(p ∨ q) ≡ (~p • ~q)
+ The truth-table at right demonstrates the logical equivalence of these two statement forms. Taken together, De Morgan's Theorems establish a systematic relationship between  • statements and  ∨ statements by providing a significant insight into the truth-conditions for the negations of both conjunctions and disjunctions. Material Implication Material Implication (Impl.) has the form:  p   q  (p ⊃ q) ≡ (~ p ∨ q) T T T T T T F F T F F T T T T F F T T T 
+	(p ⊃ q) ≡ (~p ∨ q)
+ This tautologous biconditional amounts to a logical definition of the  ⊃  connective in terms of  ∨  and the  ~ . Since expressions of these two forms are logically equivalent, we could make conditional assertions without using the  ⊃  symbol at all, though our compound statements would be a bit more complicated. Material Equivalence In similar fashion, Material Equivalence (Equiv.) provides alternative definitions of the  ≡  connective.  p   q  p≡q ≡ (p⊃q)•(q⊃p) T T T T T T F F T F F T F T F F F T T T Its first form defines  ≡  in terms of  ⊃ , justifying the use of the term "biconditional:" 
+[p≡q]≡[(p⊃q)•(q⊃p)]
+  p   q  p≡q ≡ (p•q)∨(~p•~q) T T T T T T F F T F F T F T F F F T T T Its second form defines  ≡  by pointing out its basic truth-conditions: 
+[p≡q]≡[(p•q)∨(~p•~q)]
+ Again, the logical equivalence of these three expressions provides us with a convenient way to comprehend and employ what is asserted in any statement of material equivalence. Transposition Finally, consider Transposition (Trans.):  p   q  (p⊃q) ≡ (~q⊃~p) T T T T T T F F T F F T T T T F F T T T 
+	(p ⊃ q) ≡ (~q ⊃ ~p)
+ The truth-table at the right demonstrates the legitimacy of this tautology, which shows the logical equivalence of any  ⊃ statement with another statement that results from switching its antecedent and consequent and negating both. But beware of what happens if we confuse Trans. with either of two superficially similar statement forms:  p   q  (p⊃q) ≡ (q⊃p) T T T T T T F F F T F T T F F F F T T T The fallacy of converting the conditional switches the antecedent and consequent without negating them: 
+	(p ⊃ q) ≡ (q ⊃ p)
+ The truth-table at the right shows that these statement forms are not logically equivalent, since the biconditional connecting them is contingent.  p   q  (p⊃q) ≡ (~p⊃~q) T T T T T T F F F T F T T F F F F T T T Similarly, the fallacy of negating the antecedent and the consequent negates both elements without switching them: 
+	(p ⊃ q) ≡ (~p ⊃ ~q)
+ Again, the truth-table shows that these statement-forms are not logically equivalent. The Philosophy Pages by Garth Kemerling are licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License. Permissions beyond the scope of this license may be available at http://www.philosophypages.com/referral/contact.htm. ©1997, 2011 Garth Kemerling. Last modified 12 November 2011. Questions, comments, and suggestions may be sent to: the Contact Page.

@@ -1,0 +1,26 @@
+#ThisURL#
+https://github.com/googleads/googleads-mobile-unity
+#SubURL#
+https://github.com/googleads/googleads-mobile-unity#documentation
+https://github.com/googleads/googleads-mobile-unity#license
+https://github.com
+https://github.com/googleads/googleads-mobile-unity/blob/master/build.gradle
+https://github.com/googleads/googleads-mobile-unity/releases
+https://github.com/googleads/googleads-mobile-unity/tree/v2.2
+https://github.com/googleads/googleads-mobile-unity/tree/v2.1
+https://github.com/googleads/googleads-mobile-unity/pulse
+https://github.com/personal
+https://github.com/blog
+https://help.github.com/articles/which-remote-url-should-i-use
+https://developer.github.com
+https://developers.google.com/admob/games#unity
+https://shop.github.com
+https://groups.google.com/forum/#!categories/google-admob-ads-sdk/game-engines
+http://www.apache.org/licenses/LICENSE-2.0.html
+https://help.github.com
+https://status.github.com/
+https://training.github.com
+#Title#
+GitHub - googleads/googleads-mobile-unity: Official Unity Plugin for the Google Mobile Ads SDK
+#Content#
+Skip to content Personal Open source Business Explore Sign up Sign in Pricing Blog Support Search GitHub This repository Watch 116 Star 283 Fork 409 googleads/googleads-mobile-unity Code Issues 33 Pull requests 2 Pulse Graphs Official Unity Plugin for the Google Mobile Ads SDK 40 commits 1 branch 13 releases 4 contributors C# 65.7% Objective-C 18.8% Java 13.0% C++ 2.4% Ruby 0.1% C# Objective-C Java C++ Ruby New file Find file HTTPS Choose a clone URL HTTPS (recommended) Clone with Git or checkout with SVN using the repository's web address. HTTPS Learn more about clone URLs Download ZIP Branch: master Switch branches/tags Branches Tags master Nothing to show v3.0.3 v3.0.1 v3.0.0 v2.2.1 v2.2 v2.1 v2.0 v1.2 v1.1 v1.0 3.0.2 2.3.1 2.3.0 Nothing to show New pull request Latest commit f1cad43 Mar 14, 2016 Ram Parameswaran Version 3.0.3 of the Google Mobile Ads Plugin Permalink Failed to load latest commit information. gradle/wrapper Version 3.0.0 of the Google Mobile Ads Plugin Feb 2, 2016 samples/HelloWorld Version 3.0.0 of the Google Mobile Ads Plugin Feb 2, 2016 source Version 3.0.3 of the Google Mobile Ads Plugin Mar 14, 2016 ChangeLog.txt Version 3.0.3 of the Google Mobile Ads Plugin Mar 14, 2016 GoogleMobileAds.unitypackage Version 3.0.3 of the Google Mobile Ads Plugin Mar 14, 2016 LICENSE Adding LICENSE file Feb 28, 2015 README.md Version 3.0.0 of the Google Mobile Ads Plugin Feb 2, 2016 build.gradle Version 3.0.0 of the Google Mobile Ads Plugin Feb 2, 2016 gradlew Version 3.0.0 of the Google Mobile Ads Plugin Feb 2, 2016 gradlew.bat Version 3.0.0 of the Google Mobile Ads Plugin Feb 2, 2016 README.md Google Mobile Ads Unity Plugin The Google Mobile Ads SDK is the latest generation in Google mobile advertising featuring refined ad formats and streamlined APIs for access to mobile ad networks and advertising solutions. The SDK enables mobile app developers to maximize their monetization in native mobile apps. This repository contains the source code for the Google Mobile Ads Unity plugin. This plugin enables Unity developers to easily serve Google Mobile Ads on Android and iOS apps without having to write Java or Objective-C code. The plugin provides a C# interface for requesting ads that is used by C# scripts in your Unity project. Downloads Please check out our releases for the latest official version of the plugin. Documentation For instructions on using the plugin, please refer to this developer guide. Be sure to also join the developer community on our forum. Suggesting improvements To file bugs, make feature requests, or to suggest other improvements, please use github's issue tracker. License Apache 2.0 License Status API Training Shop Blog About © 2016 GitHub, Inc. Terms Privacy Security Contact Help Something went wrong with that request. Please try again. You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session.

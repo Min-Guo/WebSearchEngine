@@ -1,0 +1,31 @@
+#ThisURL#
+http://cds.u-strasbg.fr/doc/catstd.htx
+#SubURL#
+http://cds.u-strasbg.fr/doc/catstd.pdf
+ftp://cdsarc.u-strasbg.fr/pub/sw/anafile.tar.gz
+http://cds.u-strasbg.fr/doc/trcol.htx
+http://cds.u-strasbg.fr/doc/acut.htx
+http://cds.u-strasbg.fr/doc/catstd-1.htx
+http://cds.u-strasbg.fr/doc/catstd-3.2.htx
+http://cds.u-strasbg.fr/doc/catstd-3.4.htx#range
+http://cds.u-strasbg.fr/doc/catstd-2.htx
+http://cds.u-strasbg.fr/cgi-bin/Sesame
+http://cds.u-strasbg.fr/doc/catstd-3.3.htx
+http://cds.u-strasbg.fr/doc/catstd-3.4.htx#NULL
+ftp://cdsarc.u-strasbg.fr/pub/sw/acut.tar.gz
+mailto:cds-question@unistra.fr?Subject=/home/cdsweb/httpd/Pages/doc/catstd.htx
+http://cdsbib.u-strasbg.fr/cgi-bin/cdsbib
+http://cdsarc.u-strasbg.fr/viz-bin/Cat
+http://cdsweb.u-strasbg.fr/help
+http://aladin.u-strasbg.fr/aladin.gml
+mailto:cds-question@unistra.fr
+http://cdsxmatch.u-strasbg.fr
+http://cdsportal.u-strasbg.fr
+http://tapvizier.u-strasbg.fr/adql/
+http://simbad.u-strasbg.fr/simbad
+http://vizier.u-strasbg.fr/viz-bin/VizieR
+http://cdsweb.u-strasbg.fr/SimPlay
+#Title#
+Standard for Astronomical Catalogues and Tables, Version Version 2.0 (<A HREF="catstd.pdf">pdf</a>)(February 2000)
+#Content#
+Portal Simbad VizieR Aladin X-Match Other Sesame name resolver Catalogue collection TAP VizieR Dictionary of nomenclature SimPlay Bibliography Contact us Help Standard for Documentation of Astronomical Catalogues This document details the standards adopted for the documentation of astronomical catalogues in its version Version 2.0 (pdf), dated February 2000. A short overview of the conventions, with some tips on how to fill the ReadMe file, is also available. The complete documentation is available as PDF or gzipped PostScript file. Contents of the Document Introduction: The Question of Standards Catalogue Files & Directories ReadMe file Contents Structure of the ReadMe file The Units The Labels Optional Ranges and Data Checking specifications: specifying a range of allowed values specifying NULL (unspecified) values specifying the sort order Lengthy Notes and Texts Transformation to FITS The cdsclient package Selected Manual Pages acut, a utility which helps to rearrange columns in a file trcol, a shorter utility to just remove or transform columns in a file anafile, the program which checks that the data conform to their description tofits, a program which converts standardized files into FITS tables. The corresponding programs (for Unix-like platforms) can be downloaded as the two files acut.tar.gz for the programs acut and trcol anafile.tar.gz for the programs anafile and tofits. CDS · Simbad · VizieR · Aladin · Catalogues · Nomenclature · Biblio · Tutorial · Developer's corner

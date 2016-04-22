@@ -74,29 +74,29 @@ public class PageIndexer implements Runnable {
 
     /** Indexes a single document */
     private void indexDoc(Path file, long lastModified) throws IOException {
-        String fileExtension = getExtension(file);
+//        String fileExtension = getExtension(file);
 
         // Only index html or htm files. Sometimes system will generate some files we don't want to index.
-        if (fileExtension.equals("html") || fileExtension.equals("htm")) {
+//        if (fileExtension.equals("html") || fileExtension.equals("htm")) {
             try (InputStream fileStream = Files.newInputStream(file)) {
                 //Indexing specific pages
-//                ParsePage parsePage = new ParsePage();
-//                String[] parsedInfo = parsePage.getInfos(file.toString());
-//                Document doc = new Document();
-//
-                //Indexing html file using JTidy package.
-                JTidyParser jTidyParser = new JTidyParser();
-                String[] parsedInfo = jTidyParser.parser(file.toString());
+                ParsePage parsePage = new ParsePage();
+                String[] parsedInfo = parsePage.getInfos(file.toString());
                 Document doc = new Document();
-                if (parsedInfo[0] == "") {
-                    if (parsedInfo[2] != "") {
-                        parsedInfo[0] = parsedInfo[2];
-                    } else if (parsedInfo[3] != "") {
-                        parsedInfo[0] = parsedInfo[3];
-                    } else if (parsedInfo[4] != "") {
-                        parsedInfo[0] = parsedInfo[4];
-                    }
-                }
+
+                //Indexing html file using JTidy package.
+//                JTidyParser jTidyParser = new JTidyParser();
+//                String[] parsedInfo = jTidyParser.parser(file.toString());
+//                Document doc = new Document();
+//                if (parsedInfo[0] == "") {
+//                    if (parsedInfo[2] != "") {
+//                        parsedInfo[0] = parsedInfo[2];
+//                    } else if (parsedInfo[3] != "") {
+//                        parsedInfo[0] = parsedInfo[3];
+//                    } else if (parsedInfo[4] != "") {
+//                        parsedInfo[0] = parsedInfo[4];
+//                    }
+//                }
                 doc.add(new StringField("title", parsedInfo[0], Field.Store.YES));
                 Field pathField = new StringField("path", file.toString(), Field.Store.YES);
                 doc.add(pathField);
@@ -112,7 +112,7 @@ public class PageIndexer implements Runnable {
                     writer.updateDocument(new Term("path", file.toString()), doc);
                 }
             }
-        }
+//        }
     }
 
 
@@ -142,7 +142,6 @@ public class PageIndexer implements Runnable {
 
 
         } catch (IOException e) {
-            System.out.println("thread " + threadNumber);
             System.out.println(" caught a " + e.getClass() +
                     "\n with message: " + e.getMessage());
         }

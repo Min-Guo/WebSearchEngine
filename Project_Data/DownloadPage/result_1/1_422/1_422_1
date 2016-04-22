@@ -1,0 +1,115 @@
+#ThisURL#
+http://cdsweb.u-strasbg.fr//cgi-bin/qcat?J/A+A/439/433
+#SubURL#
+http://cdsbib.u-strasbg.fr/cgi-bin/cdsbib?2005A%26A...439..433J
+http://cds.u-strasbg.fr/cgi-bin/Sesame
+ftp://cdsarc.u-strasbg.fr/pub/cats/J/A%2BA/439/433
+http://cdsweb.u-strasbg.fr//cgi-bin/?categ=*&menu=on
+mailto:cds-question@unistra.fr?Subject=Catalogue%20service
+http://cdsbib.u-strasbg.fr/cgi-bin/cdsbib?2000ApJ...529..428V
+http://cdsbib.u-strasbg.fr/cgi-bin/cdsbib
+http://cds.u-strasbg.fr/doc/catstd.htx
+http://cdsweb.u-strasbg.fr//cgi-bin/Cat?cat=J%2FA%2BA%2F439%2F433&target=readme&
+http://cdsweb.u-strasbg.fr//cgi-bin/Cat?cat=J%2FA%2BA%2F439%2F433&target=brief&
+http://cdsarc.u-strasbg.fr/viz-bin/Cat
+http://cds.u-strasbg.fr/cgi-bin/Dic-Simbad
+http://cdsweb.u-strasbg.fr//cgi-bin/Cat?cat=J%2FA%2BA%2F439%2F433&target=http&
+http://cdsweb.u-strasbg.fr//cgi-bin/qcat?J/A+A/439/433#
+http://cdsweb.u-strasbg.fr/cgi-bin/Unit?deg
+http://cdsweb.u-strasbg.fr/help
+http://cdsweb.u-strasbg.fr//cgi-bin/qcat?J/A+A/439/433#sRM-F.32
+http://aladin.u-strasbg.fr/aladin.gml
+mailto:cds-question@unistra.fr
+http://cdsxmatch.u-strasbg.fr
+http://cdsweb.u-strasbg.fr//cgi-bin/?menu=on
+http://cdsweb.u-strasbg.fr//cgi-bin/ReadMe2f?-d&/ftp/cats/J/A+A/439/433&-a
+http://cdsportal.u-strasbg.fr
+http://cds.u-strasbg.fr/
+http://tapvizier.u-strasbg.fr/adql/
+http://vizier.u-strasbg.fr/viz-bin/VizieR?-source=J%2FA%2BA%2F439%2F433
+http://simbad.u-strasbg.fr/simbad
+http://vizier.u-strasbg.fr/viz-bin/VizieR
+#Title#
+VizieR archives
+#Content#
+Portal Simbad VizieR Aladin X-Match Other Sesame name resolver Catalogue collection TAP VizieR Dictionary of nomenclature SimPlay Bibliography Contact us Help Access to Astronomical Catalogues ← Click to display the menu Search catalogue Show categories Find obsoleted in preparation catalog without ftp or VizieR link Summary ReadMe VizieR Browse FTP Tar 
+J/A+A/439/433       RIJ photometry of stars around PSR B1718-19 (Janssen+, 2005)
+ Observations of the binary pulsar system PSR B1718-19.
+The role of tidal circularization.
+    Janssen T., Van Kerkwijk M.H.
+   <Astron. Astrophys. 439, 433 (2005)>
+   =2005A&A...439..433J
+ ADC_Keywords: Pulsars ; Binaries, eclipsing ; Photometry, infrared
+
+Keywords: binaries: eclipsing - pulsars: individual (PSR B1718-19) -
+          stellar dynamics
+
+Description:
+    In our paper we present VLT-observations in R, I and J of the
+    candidate companion of PSR B1718-19, and also make use of HST
+    observations in F702W, previously presented in Van Kerkwijk et al.,
+    2000ApJ...529..428V. We make available online our astrometry and
+    photometry including error-bars. The field-size is approximately 34x34
+    arcsec (F702W), 80x80 arcsec (R & I), and 89x89 arcsec (J).
+Objects:
+    ----------------------------------------------------------
+       RA   (2000)   DE      Designation(s)
+    ----------------------------------------------------------
+    17 21 01.5   -19 36 51   PSR B1718-19 = EQ J1721-1936
+    ----------------------------------------------------------
+
+File Summary:
+ 
+       FileName      Lrecl  Records   Explanations
+ 
+ReadMe            80        .   This file
+table2.dat        97     2390   Positions and apparent magnitudes of the candidate 
+                            companion of PSR B1718-19 and surrounding stars
+ 
+
+Byte-by-byte Description of file: table2.dat
+ 
+   Bytes Format  Units   Label     Explanations
+ 
+   1-  4  I4     ---     Seq       Star label
+   7- 20  F14.10 deg     RAdeg     Right ascension (J2000) (1)
+  23- 36  F14.10 deg     DEdeg     Declination (J2000) (1)
+  39- 47  F9.3   mag     Rmag      ?=0.000 Apparent magnitude in R (657nm) (2)
+  49- 57  F9.3   mag     e_Rmag    ?=0.000 Sigma of apparent magnitude in R (3)
+  59- 67  F9.3   mag     Imag      ?=0.000 Apparent magnitude in I (768nm) (2)
+  69- 77  F9.3   mag     e_Imag    ?=0.000 Sigma of apparent magnitude in I (3)
+  79- 87  F9.3   mag     Jmag      ?=0.000 Apparent magnitude in J (1.25um) (2)
+  89- 97  F9.3   mag     e_Jmag    ?=0.000 Sigma of apparent magnitude in J (3)
+ 
+Note (1): The uncertainty in the zero-point of the astrometry is 0.06arcsec
+    (see Van Kerkwijk et al., 2000ApJ...529..428V). For this table only
+    the HST/F702W-astrometry has been corrected for field distortion,
+    using the standard correction of HSTPhot.
+
+    For VLT/FORS-bands R & I the distortion is small (smaller than
+    ∼0.15arcsec), as the astrometry and photometry is done on a subframe
+    measuring 400x400 pixels (out of a total of 2048x2048 pixels).
+
+    For VLT/ISAAC-band J the distortion is larger (amounting up to
+    ∼0.3arcsec at the edges of the subframe). Consequently, the
+    uncertainty in the astrometry is expected to be lowest in F702W,
+    intermediate in R & I, and highest in J.
+
+    The astrometry listed in this table has therefore been done in one of
+    the filters F702W, I, R, or J (in that order) if a detection occurred
+    in that filter.
+Note (2): Value 0.000 means no detection or cross-identification
+    occurred in that filter.
+Note (3): The uncertainty in the photometric zero-point is 0.02 (J)
+    or smaller than 0.03 (R & I). These uncertainties have not been 
+    added to the error-bars listed in this table.
+ 
+
+Acknowledgements: T. Janssen, T.Janssen(at)phys.uu.nl
+
+
+References:
+    Van Kerkwijk et al.,   Paper I   2000ApJ...529..428V
+ (End)                                        Patricia Vannier [CDS]  05-Apr-2005
+
+ The document above follows the rules of the Standard Description for Astronomical Catalogues.From this documentation it is possible to generate f77 program to load files into arrays or line by line catalogue service © UDS/CNRS Contact
