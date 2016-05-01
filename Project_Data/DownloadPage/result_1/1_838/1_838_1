@@ -1,8 +1,0 @@
-#ThisURL#
-http://artisttool.mtv.com/login/auth?signIn=true
-#SubURL#
-https://artisttool.mtv.com/login/auth?signIn=true
-#Title#
-302 Found
-#Content#
-Found The document has moved here.

@@ -48,6 +48,7 @@ public class PageIndexer implements Runnable {
                     try {
                         indexDoc( file, attrs.lastModifiedTime().toMillis());
                     } catch (IOException ignore) {
+                        ignore.printStackTrace();
                     }
                     return FileVisitResult.CONTINUE;
                 }
@@ -77,7 +78,7 @@ public class PageIndexer implements Runnable {
 //        String fileExtension = getExtension(file);
 
         // Only index html or htm files. Sometimes system will generate some files we don't want to index.
-//        if (fileExtension.equals("html") || fileExtension.equals("htm")) {
+        if (getExtension(file).equals("page")) {
             try (InputStream fileStream = Files.newInputStream(file)) {
                 //Indexing specific pages
                 ParsePage parsePage = new ParsePage();
@@ -103,7 +104,7 @@ public class PageIndexer implements Runnable {
                 doc.add(new LongField("modified", lastModified, Field.Store.NO));
                 InputStream stream = new ByteArrayInputStream(parsedInfo[1].getBytes(StandardCharsets.UTF_8));
                 doc.add(new TextField("contents", new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8))));
-                System.out.println("thread" + threadNumber + " " + file.toString());
+                // System.out.println("thread" + threadNumber + " " + file.toString());
                 if (writer.getConfig().getOpenMode() == IndexWriterConfig.OpenMode.CREATE) {
                     System.out.println("adding " + file);
                     writer.addDocument(doc);
@@ -112,7 +113,7 @@ public class PageIndexer implements Runnable {
                     writer.updateDocument(new Term("path", file.toString()), doc);
                 }
             }
-//        }
+        }
     }
 
 
@@ -135,7 +136,7 @@ public class PageIndexer implements Runnable {
         }
         Date start = new Date();
         try {
-            System.out.println("Indexing to directory '" + indexPath + "'...");
+            System.out.println("Indexing to directory '" + indexPath + "");
             indexDocs(docDir);
             Date end = new Date();
             System.out.println(end.getTime() - start.getTime() + " total milliseconds");
